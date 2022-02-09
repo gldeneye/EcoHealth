@@ -3,7 +3,12 @@ package com.example.EcoHealth.Controllers;
 import com.example.EcoHealth.Repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 @Controller
 public class AppController {
@@ -13,11 +18,17 @@ public class AppController {
 
     @GetMapping("/")
     public String homePage () {
-        return "homePage";
+        return "login";
     }
 
     @GetMapping("/form")
     public String form () {
         return "form";
     }
+
+    @PostMapping("/result")
+    public String saveInfo () {
+        return "result";
+    }
+
 }
