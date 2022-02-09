@@ -1,14 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-Formulär ska finnas här
+    <title>SHB EcoHealth</title>
+    <link href="../static/formulär.css" rel="stylesheet">
 
-<script src="echohealth.js"></script>
+</head>
+
+
+<body>
+<div>
+    <h1>SHB EcoHealth</h1>
+
+    <form action="/form" method="GET">
+
+        <label for="firstName">Förnamn:</label><br>
+        <input type="text" id="firstName" name="firstName"><br><br>
+
+        <label for="lastName">Efternamn:</label><br>
+        <input type="text" id="lastName" name="lastName"><br><br>
+
+        <label for="socialSecNo">Personnummer:</label>
+        <text>ååååmmddnnnn</text><br>
+        <input type="text" id="socialSecNo" name="socialSecNo"><br><br>
+
+        <ul class="list">
+            <label for="maritalStatus">Civilstånd:</label>
+            <li><input type="radio" id="single" name="maritalStatus" value="single">Ensamstående</li>
+            <li><input type="radio" id="" name="maritalStatus" value="">Sambo</li>
+            <li><input type="radio" id="married" name="maritalStatus" value="married">Gift</li>
+        </ul>
+
+        <ul class="list">
+            <label for="children">Har du barn?</label>
+            <li><input type="radio" id="yes" name="children">Ja</li>
+            <li><input type="radio" id="no" name="children">Nej</li>
+        </ul>
+
+        <ul class="list">
+            <label for="typeOfLiving">Boende: </label>
+            <li><input type="radio" id="rental" name="typeOfLiving">Hyres</li>
+            <li><input type="radio" id="owning" name="typeOfLiving">Ägande</li>
+        </ul>
+
+        <ul class="list">
+            <label for="">Har produkter/tjänster: </label>
+            <li><input type="checkbox" id="morgage" name="">Bolån</li>
+            <li><input type="checkbox" id="childrensSavings" name="childrensSavings" visible="">Barnsparande</li>
+            <li><input type="checkbox" id="pensionsSavings" name="pensionsSavings">Pensionssparande</li>
+            <li><input type="checkbox" id="" name="">produkt</li>
+        </ul>
+
+        <input type="submit" value="Nästa">
+
+    </form>
+</div>
+
+
 </body>
+
 </html>
