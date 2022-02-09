@@ -1,0 +1,23 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;  
+}
+
+h1 {
+    color: #005fa5;
+}
+
+div {
+    background-color: rgba(233, 233, 233, 0.993);
+    border-radius: 50px;
+    padding: 25px;
+}
+
+text {
+    font-size: 50%;
+}
+
