@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,10 +14,10 @@
 <div>
     <h1>SHB EcoHealth</h1>
 
-    <form action="/form" method="GET">
+    <form  action="/result" th:object="${customer}" method="POST">
 
         <label for="firstName">Förnamn:</label><br>
-        <input type="text" id="firstName" name="firstName"><br><br>
+        <input type="text" th:field="*{firstName}" id="firstName" name="firstName"><br><br>
 
         <label for="lastName">Efternamn:</label><br>
         <input type="text" id="lastName" name="lastName"><br><br>
