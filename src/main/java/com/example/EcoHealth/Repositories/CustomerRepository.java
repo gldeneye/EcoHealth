@@ -15,25 +15,48 @@ import java.util.List;
 @Service
 public class CustomerRepository {
 
-    private List<Customer> customers;
-
     @Autowired
     private DataSource dataSource;
 
-//    public List <Customer> getCustomers() {
-//        customers = new ArrayList<>();
-//        try (Connection conn = dataSource.getConnection();
-//             Statement stmt = conn.createStatement();
-//             ResultSet rs = stmt.executeQuery("SELECT * from CUSTOMER")) {
-//
-//            while (rs.next()) {
-//                customers.add(rs(rs));
-//            }
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return forumUsers;
-//    }
+    // ingen constructor dvs en tom default
+
+    public List<Customer> getCustomers(){
+        List<Customer> customers = new ArrayList<>();
+        try (Connection conn = dataSource.getConnection();
+             Statement statement = conn.createStatement();
+             ResultSet rs = statement.executeQuery("SELECT * FROM CUSTOMER")) {
+
+           while (rs.next()) {
+                Customer customer = new Customer(rs.getString("persNo"), rs.getString("firstName"), rs.getString("lastName"));
+                customers.add(customer);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customers;
+    }
+
+    public Boolean checkPassword(String persNo, String password){
+        Boolean result = false;
+        try (Connection conn = dataSource.getConnection();
+             Statement statement = conn.createStatement();
+             ResultSet rs = statement.executeQuery("SELECT * FROM CUSTOMER WHERE PERSNO = '"+persNo +"'")) {
+
+            if (rs.next()) {
+                Customer customer = new Customer(rs.getString("persNo"), rs.getString("firstName"), rs.getString("lastName"));
+
+                if (customer.getPersNo().equals(persNo)){
+                    result = true;
+                }
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 
 }
