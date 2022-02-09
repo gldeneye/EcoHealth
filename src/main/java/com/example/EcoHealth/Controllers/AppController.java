@@ -15,4 +15,9 @@ public class AppController {
     public String homePage () {
         return "homePage";
     }
+
+    @GetMapping("/form")
+    public String form () {
+        return "form";
+    }
 }
