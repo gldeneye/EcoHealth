@@ -37,10 +37,8 @@ public class AppController {
         //Addera inloggad kund till modellen
     }
 
-    @PostMapping("/result")
-    public String saveInfo (@ModelAttribute Customer customer, @RequestParam String maritalStatus) {
-        customer.setMaritalStatus(maritalStatus);
-        System.out.println(customer.getMaritalStatus());
+    @PostMapping("/form")
+    public String saveInfo (@ModelAttribute Customer customer) {
         return "result";
     }
 

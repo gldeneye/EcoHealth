@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -21,20 +21,20 @@
 
     <div class="innercontent">
 
+        <div class="bolån">
+            <p th:if="${customer.hasMortgage}">Ni har bolån!</p>
+        </div>
         <div class="buffert">
-            buffert
-        </div>
-        <div class="tryggförs">
-            trygghet
-        </div>
-        <div class="pensionsspar">
-            pensionsspar
+            <p th:if="${customer.hasBufferSavings}">Ni har buffertsparande!</p>
         </div>
         <div class="barnspar">
-            barnspar
+            <p th:if="${customer.hasChildSavings}">Ni har barnspar!</p>
         </div>
-        <div class="swag">
-            swag
+        <div class="tryggförs">
+            <p th:if="${customer.hasInsurance}">Ni har trygghetsförsäkring!</p>
+        </div>
+        <div class="pensionsspar">
+            <p th:if="${customer.hasPensionSavings}">Ni har ett pensionssparande!</p>
         </div>
 
     </div>
