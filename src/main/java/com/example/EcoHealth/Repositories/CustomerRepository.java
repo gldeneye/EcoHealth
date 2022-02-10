@@ -44,7 +44,7 @@ public class CustomerRepository {
              ResultSet rs = statement.executeQuery("SELECT * FROM CUSTOMER WHERE PERSNO = '"+persNo +"'")) {
 
             if (rs.next()) {
-                Customer customer = new Customer(rs.getString("persNo"), rs.getString("firstName"), rs.getString("lastName"));
+                Customer customer = new Customer(rs.getString("persNo"), rs.getString("password"), rs.getString("firstName"), rs.getString("lastName"));
 
                 if (customer.getPersNo().equals(persNo)){
                     result = true;
