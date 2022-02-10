@@ -6,62 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHB EcoHealth</title>
     <link href="form.css" rel="stylesheet">
-    <link rel="icon" href="http://www.metropol.se/imagebank/larges/1001/%7BB1F5469B-C0AA-4549-8801-4E5719E79EF1%7D.jpg">
-
-
 </head>
-
 
 <body>
 <div>
     <h1>SHB EcoHealth</h1>
-
     <form  action="/result" th:object="${customer}" method="POST">
-
         <label for="firstName">Förnamn:</label><br>
         <input type="text" th:field="*{firstName}" id="firstName" name="firstName"><br><br>
-
         <label for="lastName">Efternamn:</label><br>
         <input type="text" th:field="*{lastName}" id="lastName" name="lastName"><br><br>
-
         <label for="socialSecNo">Personnummer:</label>
         <text>ååmmdd-nnnn</text><br>
         <input type="text" th:field="*{persNo}" id="socialSecNo" name="socialSecNo"><br><br>
-
         <ul class="list">
             <p>Civilstånd:</p>
             <li> <input type="radio" th:field="*{maritalStatus}" value="single">Ensamstående</li>
-            <li><input type="radio" th:field="*{maritalStatus}"  value="sambo">Sambo</li>
-            <li><input type="radio" th:field="*{maritalStatus}"  value="married">Gift</li>
+            <li> <input type="radio" th:field="*{maritalStatus}" value="sambo">Sambo</li>
+            <li> <input type="radio" th:field="*{maritalStatus}" value="married">Gift</li>
         </ul>
-
-        <!--        <ul class="list">-->
-        <!--            <p>Har du barn?</p>-->
-        <!--            <li><input type="radio" th:field="*{hasChildren}" name="children">Ja</li>-->
-        <!--            <li><input type="radio" th:field="*{hasChildren}" name="children">Nej</li>-->
-        <!--        </ul>-->
-
-        <!--        <ul class="list">-->
-        <!--            <p>Boende:</p>-->
-        <!--            <li><input type="radio" th:field="*{typeOfLiving}" name="typeOfLiving">Hyres</li>-->
-        <!--            <li><input type="radio" th:field="*{typeOfLiving}" name="typeOfLiving">Ägande</li>-->
-        <!--        </ul>-->
-
-        <!--        <ul class="list">-->
-        <!--            <p>Har produkter/tjänster: </p>-->
-        <!--            <li><input type="checkbox" th:field="*{hasMortgage}" value="Bolån"></li>-->
-        <!--            <li><input type="checkbox" th:field="*{hasBufferSavings}" value="Buffertsparande"></li>-->
-        <!--            <li><input type="checkbox" th:field="*{hasChildSavings}" value="Barnsparande"></li>-->
-        <!--            <li><input type="checkbox" th:field="*{hasInsurance}" value="Trygghetsförsäkring"></li>-->
-        <!--            <li><input type="checkbox" th:field="*{hasPensionSavings}" value="Pensionssparande"></li>-->
-        <!--        </ul>-->
-
+        <ul class="list">
+            <p>Har du barn?</p>
+            <li> <input type="radio" th:field="*{hasChildren}" value="true">Ja</li>
+            <li> <input type="radio" th:field="*{hasChildren}" value="false">Nej</li>
+        </ul>
+        <ul class="list">
+            <p>Boende:</p>
+            <li><input type="radio" th:field="*{typeOfLiving}" value="hyres">Hyres</li>
+            <li><input type="radio" th:field="*{typeOfLiving}" value="ägande">Ägande</li>
+        </ul>
+        <ul class="list">
+            <p>Har produkter/tjänster: </p>
+            <li><input type="checkbox" th:field="*{hasMortgage}" value="true">Bolån</li>
+            <li><input type="checkbox" th:field="*{hasBufferSavings}" value="true">Buffertspar</li>
+            <li><input type="checkbox" th:field="*{hasChildSavings}" value="true">Barnspar</li>
+            <li><input type="checkbox" th:field="*{hasInsurance}" value="true">Trygghetsförsäkring</li>
+            <li><input type="checkbox" th:field="*{hasPensionSavings}" value="true">Pensionsspar</li>
+        </ul>
         <input type="submit" value="Nästa">
-
     </form>
 </div>
 
-
 </body>
-
 </html>

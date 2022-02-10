@@ -154,3 +154,4 @@ public class Customer {
     public void setHasPensionSavings(boolean hasPensionSavings) {
         this.hasPensionSavings = hasPensionSavings;
     }
+}
