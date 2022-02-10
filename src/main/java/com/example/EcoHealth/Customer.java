@@ -8,6 +8,9 @@ public class Customer {
     private String lastName;
     private String email;
 
+    public String getPassword() {
+        return password;
+    }
 //i DB endast en tabell just nu va rtvungen att radera
 //lägg till unique i customer tabell på persNo
     //spelar ingen roll vilka villkor som ligger i databas (unique, not null etc) då constructor styr hur man kan skapar objekt

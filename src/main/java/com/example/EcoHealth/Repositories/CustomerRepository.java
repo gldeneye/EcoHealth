@@ -2,6 +2,8 @@ package com.example.EcoHealth.Repositories;
 
 import com.example.EcoHealth.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.ConditionalOnRepositoryType;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
@@ -12,7 +14,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Repository
 public class CustomerRepository {
 
     @Autowired
@@ -46,7 +48,7 @@ public class CustomerRepository {
             if (rs.next()) {
                 Customer customer = new Customer(rs.getString("persNo"), rs.getString("password"), rs.getString("firstName"), rs.getString("lastName"));
 
-                if (customer.getPersNo().equals(persNo)){
+                if (customer.getPassword().equals(password)){
                     result = true;
                 }
 
