@@ -59,4 +59,29 @@ public class CustomerRepository {
         return result;
     }
 
+    public Customer getCustomerInfo(String persNo){
+
+        //custRepo.getCustomerInfo('931104-0125') -->
+        Customer customer;
+
+        try (Connection conn = dataSource.getConnection();
+             Statement statement = conn.createStatement();
+             ResultSet rs = statement.executeQuery("SELECT * FROM CUSTOMER WHERE PERSNO = '"+persNo +"' INNER JOIN CUSTOMERINFO ON CUSTOMER.Id = CUSTOMERINFO.CUSTOMERID")) {
+
+            if (rs.next()) {
+                customer = new Customer(rs.getString("persNo"), rs.getString("password"), rs.getString("firstName"), rs.getString("lastName"));
+
+                if/while ()){
+
+                }
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return customer;
+
+    }
 }

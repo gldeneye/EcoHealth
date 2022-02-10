@@ -1,5 +1,10 @@
 package com.example.EcoHealth;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class Customer {
     private int id;
     private String persNo;
@@ -7,11 +12,6 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String email;
-
-//i DB endast en tabell just nu va rtvungen att radera
-//lägg till unique i customer tabell på persNo
-    //spelar ingen roll vilka villkor som ligger i databas (unique, not null etc) då constructor styr hur man kan skapar objekt
-    // ändra från resultset to prepaerd statment för att skydda lösenord
 
     public Customer(String persNo, String password, String firstName, String lastName) {
         this.persNo = persNo;
@@ -29,4 +29,5 @@ public class Customer {
     public String getPassword() {
         return password;
     }
+
 }
