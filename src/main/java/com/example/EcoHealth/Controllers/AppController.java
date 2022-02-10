@@ -23,7 +23,7 @@ public class AppController {
 
     @GetMapping("/form")
     public String form () {
-        return "form";
+        return "homePage";
     }
 
     @PostMapping("/result")
