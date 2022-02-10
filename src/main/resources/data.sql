@@ -8,8 +8,18 @@ INSERT INTO Product(name, numberOfTokens) VALUES ('ChildrensSavings', 2);
 INSERT INTO Product(name, numberOfTokens) VALUES ('PensionsSavings', 2);
 INSERT INTO Product(name, numberOfTokens) VALUES ('Insurance', 1);
 
-INSERT INTO Agreement(customerId, productId, agreementSignedDate, agreementSignedTime) VALUES (1, 1, '2022-01-01','10:00:00');
-INSERT INTO Agreement(customerId, productId, agreementSignedDate, agreementSignedTime) VALUES (2, 2, '2022-01-01','10:00:00');
-INSERT INTO Agreement(customerId, productId, agreementSignedDate, agreementSignedTime) VALUES (3, 2, '2022-01-01','10:00:00');
+INSERT INTO Agreement(CustomerId, productId, agreementSignedDate, agreementSignedTime) VALUES (1, 1, '2022-01-01','10:00:00');
+INSERT INTO Agreement(CustomerId, productId, agreementSignedDate, agreementSignedTime) VALUES (2, 2, '2022-01-01','10:00:00');
+INSERT INTO Agreement(CustomerId, productId, agreementSignedDate, agreementSignedTime) VALUES (3, 2, '2022-01-01','10:00:00');
 
-INSERT INTO CustomerInfo(customerId, maritalStatus, children, accommodation) VALUES (1, 'Single', 0, 'Rental');
+INSERT INTO MaritalStatus(Name) VALUES ('Single');
+INSERT INTO MaritalStatus(Name) VALUES ('Sambo');
+INSERT INTO MaritalStatus(Name) VALUES ('Married');
+
+INSERT INTO Accommodation(Name) VALUES ('Rental');
+INSERT INTO Accommodation(Name) VALUES ('Property asset');
+INSERT INTO Accommodation(Name) VALUES ('Apartment asset');
+
+INSERT INTO CustomerInfo(CustomerId, MaritalStatusID, Children, AccommodationId) VALUES (1, 1, 0, 1);
+INSERT INTO CustomerInfo(CustomerId, MaritalStatusID, Children, AccommodationId) VALUES (2, 2, 1, 1);
+INSERT INTO CustomerInfo(CustomerId, MaritalStatusID, Children, AccommodationId) VALUES (3, 2, 0, 3);
