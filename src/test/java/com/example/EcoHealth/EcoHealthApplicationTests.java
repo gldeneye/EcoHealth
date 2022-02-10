@@ -22,7 +22,11 @@ class EcoHealthApplicationTests {
 	@Test
 	void testCheckPassword() {
 		Assertions.assertEquals(true, custRepo.checkPassword("720327-5935", "ww"));
-	}
 
+	}
+	@Test
+	void testCheckPassword1() {
+		Assertions.assertEquals(true, custRepo.checkPassword("720327-5935", "password123"));
+	}
 
 }
