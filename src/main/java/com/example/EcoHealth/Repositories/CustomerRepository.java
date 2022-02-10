@@ -2,6 +2,7 @@ package com.example.EcoHealth.Repositories;
 
 import com.example.EcoHealth.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
@@ -12,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Repository
 public class CustomerRepository {
 
     @Autowired

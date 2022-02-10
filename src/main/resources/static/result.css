@@ -1,0 +1,67 @@
+body {
+    background-color: #f6f6f6;
+}
+
+.headcontent {
+
+    background-color:#043b62;
+    overflow: hidden;
+    border-bottom: 1px solid #fff;
+}
+
+h2 {
+    color: white;
+}
+
+.bodycontent {
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    height: 1000px;
+    border: 1px solid gray;
+    background-color: #ebebeb;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+
+}
+
+.bodycontent, .innercontent, .buffert, .tryggförs, .pensionsspar, .barnspar, .swag {
+    max-width: 700px;
+
+}
+
+.currentscore {
+    max-width: fit-content;
+    font-size: 70px;
+    margin-top: 50px;
+    margin-left: 30px;
+    padding: 10px 10px;
+    font-family: Georgia, sans-serif;
+    border: solid 1px gray;
+    border-radius: 10px;
+    background-color: #d3d3d3;
+    color: #080808;
+    height: 80px;
+    position: absolute;
+    top: 100px;
+}
+
+.innercontent, .buffert, .tryggförs, .pensionsspar, .barnspar, .swag  {
+    border: solid 1px gray;
+    margin: 20px 30px;
+    border-radius: 10px;
+
+}
+
+.innercontent {
+    height: 650px;
+}
+
+.buffert, .tryggförs, .pensionsspar, .barnspar, .swag {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    width: 570px;
+    /* Varför är inte storleken på ämnesboxarna flexibel när man minskar fönstrets storlek? */
+}
