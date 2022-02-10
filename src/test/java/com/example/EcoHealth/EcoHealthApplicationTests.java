@@ -15,12 +15,12 @@ class EcoHealthApplicationTests {
     CustomerRepository custRepo;
 
 	@Test
-	void someMethod() {
+	void testGetCustomers() {
 		Assertions.assertEquals(4, custRepo.getCustomers().size());
 	}
 
 	@Test
-	void someMethod1() {
+	void testCheckPassword() {
 		Assertions.assertEquals(true, custRepo.checkPassword("720327-5935", "ww"));
 	}
 
