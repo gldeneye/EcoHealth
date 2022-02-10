@@ -26,7 +26,7 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public String getPersNo() {
-        return persNo;
+    public String getPassword() {
+        return password;
     }
 }

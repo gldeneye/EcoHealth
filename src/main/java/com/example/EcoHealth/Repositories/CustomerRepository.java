@@ -46,7 +46,7 @@ public class CustomerRepository {
             if (rs.next()) {
                 Customer customer = new Customer(rs.getString("persNo"), rs.getString("password"), rs.getString("firstName"), rs.getString("lastName"));
 
-                if (customer.getPersNo().equals(persNo)){
+                if (customer.getPassword().equals(password)){
                     result = true;
                 }
 
