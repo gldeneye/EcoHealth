@@ -7,7 +7,7 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String email;
-    private String martialStatus;
+    private String maritalStatus;
     private boolean hasChildren;
     private String typeOfLiving;
     private boolean hasMortgage;
@@ -16,14 +16,14 @@ public class Customer {
     private boolean hasInsurance;
     private boolean hasPensionSavings;
 
-    public Customer(int id, String persNo, String password, String firstName, String lastName, String email, String martialStatus, boolean hasChildren, String typeOfLiving, boolean hasMortgage, boolean hasBufferSavings, boolean hasChildSavings, boolean hasInsurance, boolean hasPensionSavings) {
+    public Customer(int id, String persNo, String password, String firstName, String lastName, String email, String maritalStatus, boolean hasChildren, String typeOfLiving, boolean hasMortgage, boolean hasBufferSavings, boolean hasChildSavings, boolean hasInsurance, boolean hasPensionSavings) {
         this.id = id;
         this.persNo = persNo;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.martialStatus = martialStatus;
+        this.maritalStatus = maritalStatus;
         this.hasChildren = hasChildren;
         this.typeOfLiving = typeOfLiving;
         this.hasMortgage = hasMortgage;
@@ -91,12 +91,12 @@ public class Customer {
         this.email = email;
     }
 
-    public String getMartialStatus() {
-        return martialStatus;
+    public String getMaritalStatus() {
+        return maritalStatus;
     }
 
-    public void setMartialStatus(String martialStatus) {
-        this.martialStatus = martialStatus;
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
     }
 
     public boolean isHasChildren() {

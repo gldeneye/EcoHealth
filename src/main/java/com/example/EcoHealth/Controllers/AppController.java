@@ -38,7 +38,9 @@ public class AppController {
     }
 
     @PostMapping("/result")
-    public String saveInfo (@ModelAttribute Customer customer) {
+    public String saveInfo (@ModelAttribute Customer customer, @RequestParam String maritalStatus) {
+        customer.setMaritalStatus(maritalStatus);
+        System.out.println(customer.getMaritalStatus());
         return "result";
     }
 
