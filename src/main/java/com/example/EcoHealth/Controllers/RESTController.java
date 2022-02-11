@@ -20,8 +20,8 @@ public class RESTController {
         return customerRepository.calcCustomerTokens(persNo);
     }
 
-    @GetMapping("/restMortgage/{persNo}")
-    public boolean checkMortgage(@PathVariable String persNo) {
-        return customerRepository.checkMortgage(persNo);
+    @GetMapping("/restMortgage/{persNo}/{productType}")
+    public boolean checkMortgage(@PathVariable String persNo, @PathVariable String productType) {
+        return customerRepository.checkProduct(persNo, productType);
     }
 }

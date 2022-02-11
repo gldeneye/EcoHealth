@@ -25,12 +25,33 @@ public class AppController {
     }
 
     @PostMapping("/check")
-    public String kontrolleraInlog(Model model, @RequestParam String persNo, @RequestParam String password) {
+    public String kontrolleraInlog(HttpSession session, Model model, @RequestParam String persNo, @RequestParam String password) {
        boolean check = customerRepository.checkPassword(persNo, password);
        if (check) {
            Customer customer = new Customer();
            customer.setPersNo(persNo);
            model.addAttribute("customer",customer);
+
+           boolean hasMortgage = customerRepository.checkProduct(persNo,"Mortgage");
+           boolean hasBufferSavings = customerRepository.checkProduct(persNo,"BufferSavings");
+           boolean hasChildrensSavings = customerRepository.checkProduct(persNo,"ChildrensSavings");
+           boolean hasPensionsSavings = customerRepository.checkProduct(persNo,"PensionsSavings");
+           boolean hasInsurance = customerRepository.checkProduct(persNo,"Insurance");
+
+
+           model.addAttribute("hasMortgage", hasMortgage);
+           model.addAttribute("hasBufferSavings", hasBufferSavings);
+           model.addAttribute("hasChildSavings", hasChildrensSavings);
+           model.addAttribute("hasInsurance", hasInsurance);
+           model.addAttribute("hasPensionSavings", hasPensionsSavings);
+
+           System.out.println("Mortgage: " + hasMortgage);
+           System.out.println("Buffer: " + hasBufferSavings);
+           System.out.println("Child Savings: " + hasChildrensSavings);
+           System.out.println("Insurance: " + hasInsurance);
+           System.out.println("Pension Savings: " + hasPensionsSavings);
+
+           session.setAttribute("hasMortgage", hasMortgage);
            return "form";
        }
        else {
@@ -39,10 +60,12 @@ public class AppController {
     }
 
     @PostMapping("/form")
-    public String saveInfo (Model model, @ModelAttribute Customer customer) {
+    public String saveInfo (HttpSession session, Model model, @ModelAttribute Customer customer) {
         int tokens = customerRepository.calcCustomerTokens(customer.getPersNo());
         System.out.println(tokens);
         model.addAttribute("tokens", tokens);
+        model.addAttribute(session.getAttribute("hasMortgage"));
+        System.out.println("Kund har bolån? " + session.getAttribute("hasMortgage"));
         return "result";
     }
 

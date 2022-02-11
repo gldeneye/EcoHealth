@@ -73,29 +73,30 @@ public class CustomerRepository {
         return numOfTokens;
     }
 
-    public boolean checkMortgage(String persNo) {
+    public boolean checkProduct(String persNo, String productType) {
         int flag = 0;
-        boolean hasMortgage = false;
+        boolean hasproduct = false;
         try (Connection conn = dataSource.getConnection();
         PreparedStatement ps = conn.prepareStatement("select count (*) " +
                 "from agreement " +
                 "inner join product on product.id = agreement.productid " +
                 "inner join customer on agreement.customerid = customer.id " +
-                "where customer.persNo = ? and product.name = 'Mortgage'")) {
+                "where customer.persNo = ? and product.name = ?")) {
 
             ps.setString(1,persNo);
+            ps.setString(2,productType);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 flag = rs.getInt(1);
                 if (flag > 0) {
-                    hasMortgage = true;
+                    hasproduct = true;
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return hasMortgage;
+        return hasproduct;
     }
 
 }

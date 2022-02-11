@@ -47,11 +47,11 @@
 
         <ul class="list">
             <p>Har produkter/tjänster: </p>
-            <li><input type="checkbox" th:field="*{hasMortgage}" value="true" default="false">Bolån</li>
-            <li><input type="checkbox" th:field="*{hasBufferSavings}" value="true" default="false">Buffertspar</li>
-            <li><input type="checkbox" th:field="*{hasChildSavings}" value="true" default="false">Barnspar</li>
-            <li><input type="checkbox" th:field="*{hasInsurance}" value="true" default="false">Trygghetsförsäkring</li>
-            <li><input type="checkbox" th:field="*{hasPensionSavings}" value="true" default="false">Pensionsspar</li>
+            <li><input type="checkbox" value="true" th:checked="${hasMortgage}" >Bolån</li>
+            <li><input type="checkbox" value="true" th:checked="${hasBufferSavings}">Buffertspar</li>
+            <li><input type="checkbox" value="true" th:checked="${hasChildSavings}">Barnspar</li>
+            <li><input type="checkbox" value="true" th:checked="${hasInsurance}">Trygghetsförsäkring</li>
+            <li><input type="checkbox" value="true" th:checked="${hasPensionSavings}">Pensionsspar</li>
         </ul>
 
         <input type="submit" value="Nästa">
