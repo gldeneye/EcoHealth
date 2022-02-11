@@ -21,7 +21,7 @@
     <div class="innercontent">
 
         <div class="bolån">
-            <p th:text="${hasMortgage} ? 'Bolån saknas...' : 'Ni har bolån!'"></p>
+            <div th:text="${hasMortgage} ? 'Bolån saknas...' : 'Ni har bolån!'"></div>
         </div>
         <div class="buffert">
             <p th:if="${customer.hasBufferSavings}">Ni har buffertsparande!</p>

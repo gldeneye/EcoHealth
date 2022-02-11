@@ -38,12 +38,12 @@ public class CustomerRepository {
     public Boolean checkPassword(String persNo, String password){
         Boolean result = false;
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("SELECT * FROM CUSTOMER WHERE PERSNO = ?")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT PASSWORD FROM CUSTOMER WHERE PERSNO = ?")) {
                 ps.setString(1, persNo);
                 ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                result = true;
+                result = rs.getString("password").equals(password);
             }
 
         } catch (SQLException e) {
