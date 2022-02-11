@@ -22,6 +22,8 @@ h1 {
     font-family: Helvetica, Arial, sans-serif;
 }
 .image {
+    opacity: 0.5;
+    border-radius: 8px;
     height:160px;
     margin-top:100px;
     display:flex;

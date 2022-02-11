@@ -99,4 +99,75 @@ public class CustomerRepository {
         return hasproduct;
     }
 
+//    public Boolean getHasChildrenFromDB(String persNo) {
+//        Boolean hasChildren = false;
+//        try (Connection conn = dataSource.getConnection();
+//             Statement statement = conn.createStatement();
+//             ResultSet rs = statement.executeQuery("SELECT CUSTOMER.ID, CUSTOMERINFO.Children\n" +
+//                     "FROM CUSTOMER \n" +
+//                     "LEFT JOIN CUSTOMERINFO \n" +
+//                     "ON CUSTOMER.ID = CUSTOMERINFO.CUSTOMERID\n" +
+//                     "WHERE CUSTOMER.PERSNO = '" + persNo + "'")) {
+//            if (rs.next()) {
+//                hasChildren = rs.getBoolean("Children");
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return hasChildren;
+//    }
+//
+//    public String getInfoType(String persNo, String infoType) {
+//        String type = "unknown";
+//        try (Connection conn = dataSource.getConnection();
+//             PreparedStatement ps = conn.prepareStatement("SELECT CUSTOMERINFO.?" +
+//                     "FROM CUSTOMER " +
+//                     "LEFT JOIN CUSTOMERINFO  " +
+//                     "ON CUSTOMER.ID = CUSTOMERINFO.CUSTOMERID " +
+//                     "WHERE CUSTOMER.PERSNO = ?")) {
+//
+//            ps.setString(1,infoType);
+//            ps.setString(2,persNo);
+//            ResultSet rs = ps.executeQuery();
+//
+//            if (rs.next()) {
+//                type = rs.getString(1);
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return type;
+//    }
+//
+//    public String getTypeOfLivingFromDB(String persNo) {
+//        String typeOfLiving = "unknown";
+//        try (Connection conn = dataSource.getConnection();
+//             Statement statement = conn.createStatement();
+//             ResultSet rs = statement.executeQuery("SELECT CUSTOMER.ID, CUSTOMERINFO.ACCOMMODATION\n" +
+//                     "FROM CUSTOMER \n" +
+//                     "LEFT JOIN CUSTOMERINFO \n" +
+//                     "ON CUSTOMER.ID = CUSTOMERINFO.CUSTOMERID\n" +
+//                     "WHERE CUSTOMER.PERSNO = '" + persNo + "'")) {
+//            if (rs.next()) {
+//                typeOfLiving = rs.getString("ACCOMMODATION");
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return typeOfLiving;
+//    }
+//
+//    public String getEmailFromDB(String persNo) {
+//        String email = "unknown";
+//        try (Connection conn = dataSource.getConnection();
+//             Statement statement = conn.createStatement();
+//             ResultSet rs = statement.executeQuery("SELECT EMAIL FROM CUSTOMER WHERE PERSNO= '" + persNo + "'")) {
+//            if (rs.next()) {
+//                email = rs.getString("email");
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return email;
+//    }
 }

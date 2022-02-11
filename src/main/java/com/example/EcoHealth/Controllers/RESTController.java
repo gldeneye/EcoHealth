@@ -24,4 +24,9 @@ public class RESTController {
     public boolean checkMortgage(@PathVariable String persNo, @PathVariable String productType) {
         return customerRepository.checkProduct(persNo, productType);
     }
+
+//    @GetMapping("/restType/{persNo}/{infoType}")
+//    public String checkInfoType(@PathVariable String persNo, @PathVariable String infoType) {
+//        return customerRepository.getInfoType(persNo, infoType);
+//    }
 }
