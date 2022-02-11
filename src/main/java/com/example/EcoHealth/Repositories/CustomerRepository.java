@@ -73,4 +73,29 @@ public class CustomerRepository {
         return numOfTokens;
     }
 
+    public boolean checkMortgage(String persNo) {
+        int flag = 0;
+        boolean hasMortgage = false;
+        try (Connection conn = dataSource.getConnection();
+        PreparedStatement ps = conn.prepareStatement("select count (*) " +
+                "from agreement " +
+                "inner join product on product.id = agreement.productid " +
+                "inner join customer on agreement.customerid = customer.id " +
+                "where customer.persNo = ? and product.name = 'Mortgage'")) {
+
+            ps.setString(1,persNo);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                flag = rs.getInt(1);
+                if (flag > 0) {
+                    hasMortgage = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hasMortgage;
+    }
+
 }

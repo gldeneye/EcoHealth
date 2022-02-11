@@ -19,4 +19,9 @@ public class RESTController {
     public int getCustomerTokens(@PathVariable String persNo) {
         return customerRepository.calcCustomerTokens(persNo);
     }
+
+    @GetMapping("/restMortgage/{persNo}")
+    public boolean checkMortgage(@PathVariable String persNo) {
+        return customerRepository.checkMortgage(persNo);
+    }
 }
