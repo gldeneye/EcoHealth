@@ -2,6 +2,7 @@ package com.example.EcoHealth.Controllers;
 
 import com.example.EcoHealth.Repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -14,4 +15,8 @@ public class RESTController {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @GetMapping("/restTokens/{persNo}")
+    public int getCustomerTokens(@PathVariable String persNo) {
+        return customerRepository.calcCustomerTokens(persNo);
+    }
 }

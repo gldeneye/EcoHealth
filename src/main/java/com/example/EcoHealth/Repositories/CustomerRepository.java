@@ -53,4 +53,24 @@ public class CustomerRepository {
         return result;
     }
 
+    public int calcCustomerTokens(String persNo) {
+        int numOfTokens = 0;
+        try (Connection conn = dataSource.getConnection();
+        PreparedStatement ps = conn.prepareStatement("SELECT SUM (NUMBEROFTOKENS) FROM AGREEMENT "+
+                "INNER JOIN PRODUCT ON AGREEMENT.PRODUCTID = PRODUCT.ID " +
+                "INNER JOIN CUSTOMER ON AGREEMENT.CUSTOMERID = CUSTOMER.ID " +
+                "WHERE CUSTOMER.PERSNO =?")) {
+
+            ps.setString(1,persNo);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                numOfTokens = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return numOfTokens;
+    }
+
 }

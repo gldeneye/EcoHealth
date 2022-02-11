@@ -24,17 +24,17 @@ public class AppController {
         return "login";
     }
 
-    @PostMapping("/homePage")
-    public String tamighem() {
-        return "homePage";
-    }
-
-    @GetMapping("/form")
-    public String form (Model model) {
-        Customer customer = new Customer();
-        model.addAttribute("customer",customer);
-        return "form";
-        //Addera inloggad kund till modellen
+    @PostMapping("/check")
+    public String kontrolleraInlog(Model model, @RequestParam String persNo, @RequestParam String password) {
+       boolean check = customerRepository.checkPassword(persNo, password);
+       if (check) {
+           Customer customer = new Customer();
+           model.addAttribute("customer",customer);
+           return "form";
+       }
+       else {
+           return "redirect:/";
+       }
     }
 
     @PostMapping("/form")

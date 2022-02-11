@@ -1,21 +1,47 @@
 CREATE TABLE Customer(
 Id INT PRIMARY KEY AUTO_INCREMENT,
-persNo VARCHAR(13) UNIQUE NOT NULL,
-password VARCHAR(40) NOT NULL,
-firstName VARCHAR(64) NOT NULL,
-lastName VARCHAR(64) NOT NULL,
-email VARCHAR(64)
+PersNo VARCHAR(13) UNIQUE NOT NULL,
+Password VARCHAR(40) NOT NULL,
+Firstname VARCHAR(64) NOT NULL,
+Lastname VARCHAR(64) NOT NULL,
+Email VARCHAR(64)
 );
 
---CREATE TABLE Product(
---Id INT AUTO_INCREMENT PRIMARY KEY,
---name VARCHAR(64) NOT NULL,
---numberOfTokens INT
---);
---
---CREATE TABLE Agreement(
---Id INT AUTO_INCREMENT PRIMARY KEY,
---customerId INT NOT NULL FOREIGN KEY REFERENCES Customer(Id),
---productId INT NOT NULL FOREIGN KEY REFERENCES Product(Id),
---agreementSigned TIMESTAMP
---);
+CREATE TABLE Product(
+Id INT AUTO_INCREMENT PRIMARY KEY,
+Name VARCHAR(64) NOT NULL,
+NumberOfTokens INT
+);
+
+CREATE TABLE Agreement(
+Id INT PRIMARY KEY AUTO_INCREMENT,
+CustomerId INT,
+ProductId INT,
+AgreementSignedDate DATE,
+AgreementSignedTime TIME
+);
+
+CREATE TABLE CustomerInfo(
+Id INT PRIMARY KEY AUTO_INCREMENT,
+CustomerId INT,
+MaritalStatusId INT,
+Children BIT,
+AccommodationId INT
+);
+
+ALTER TABLE Agreement ADD FOREIGN KEY (CustomerId) REFERENCES Customer(Id);
+ALTER TABLE Agreement ADD FOREIGN KEY (ProductId) REFERENCES Product(Id);
+ALTER TABLE CustomerInfo ADD FOREIGN KEY (CustomerId) REFERENCES Customer(Id);
+
+CREATE TABLE MaritalStatus(
+ID INT PRIMARY KEY AUTO_INCREMENT,
+Name VARCHAR(50)
+);
+
+CREATE TABLE Accommodation(
+ID INT PRIMARY KEY AUTO_INCREMENT,
+Name VARCHAR(50)
+);
+
+ALTER TABLE CustomerInfo ADD FOREIGN KEY (MaritalStatusId) REFERENCES MaritalStatus(Id);
+ALTER TABLE CustomerInfo ADD FOREIGN KEY (AccommodationId) REFERENCES Accommodation(Id);
