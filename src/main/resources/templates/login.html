@@ -6,14 +6,18 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
+    <link rel="icon" href="http://www.metropol.se/imagebank/larges/1001/%7BB1F5469B-C0AA-4549-8801-4E5719E79EF1%7D.jpg">
+    <link rel="stylesheet" href="/login.css">
 </head>
 <body>
-    <form action="/check" method="post">
-        Personnummer: <input type="text" name="persNo">
-        Lösen: <input type="password" name="password">
-        <input type="submit">
+<h1>Welcome to EcoHealth</h1>
+<div class="form">
+    <form method="post" action="/check" >
+        <input type="text" name="persNo">
+        <input type="password" name="password">
+        <button class="button" type="submit">Sign in</button>
     </form>
-
+</div>
 
 </body>
 </html>

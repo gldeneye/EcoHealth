@@ -29,6 +29,7 @@ public class AppController {
        boolean check = customerRepository.checkPassword(persNo, password);
        if (check) {
            Customer customer = new Customer();
+           customer.setPersNo(persNo);
            model.addAttribute("customer",customer);
            return "form";
        }
@@ -38,7 +39,10 @@ public class AppController {
     }
 
     @PostMapping("/form")
-    public String saveInfo (@ModelAttribute Customer customer) {
+    public String saveInfo (Model model, @ModelAttribute Customer customer) {
+        int tokens = customerRepository.calcCustomerTokens(customer.getPersNo());
+        System.out.println(tokens);
+        model.addAttribute("tokens", tokens);
         return "result";
     }
 
