@@ -155,7 +155,7 @@ public class AppController {
         model.addAttribute("show2", show2);
         model.addAttribute("show", show);
 
-/*
+
         Product Mortgage = new Product("Mortgage", "Flytta ditt bolån till Handelsbanken och tjäna XX st Scotte coins","#");
         Product Buffer = new Product("Buffer", "Trygga din ekonomi med en buffert för oförusedda utgifter", "#");
         Product ChildrenSavings = new Product("ChildrenSavings","Barnspar", "#");
@@ -169,7 +169,7 @@ public class AppController {
         products.put(4, PensionSavings);
         products.put(5, Insurance);
 
-        model.addAttribute("products", products);*/
+        model.addAttribute("products", products);
 
         return "result";
     }
