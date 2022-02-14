@@ -6,31 +6,43 @@ public class Customer {
     private String password;
     private String firstName;
     private String lastName;
-    private String email;
-    private String maritalStatus;
-    private boolean hasChildren;
-    private String typeOfLiving;
-    private boolean hasMortgage;
-    private boolean hasBufferSavings;
-    private boolean hasChildSavings;
-    private boolean hasInsurance;
-    private boolean hasPensionSavings;
+//
+    private boolean isSingle;
+    private boolean isMarried;
+    private boolean isSambo;
 
+    public boolean isSingle() {
+        return isSingle;
+    }
+
+    public void setSingle(boolean single) {
+        isSingle = single;
+    }
+
+    public boolean isMarried() {
+        return isMarried;
+    }
+
+    public void setMarried(boolean married) {
+        isMarried = married;
+    }
+
+    public boolean isSambo() {
+        return isSambo;
+    }
+
+    public void setSambo(boolean sambo) {
+        isSambo = sambo;
+    }
+
+    //
     public Customer(int id, String persNo, String password, String firstName, String lastName, String email, String maritalStatus, boolean hasChildren, String typeOfLiving, boolean hasMortgage, boolean hasBufferSavings, boolean hasChildSavings, boolean hasInsurance, boolean hasPensionSavings) {
         this.id = id;
         this.persNo = persNo;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
-        this.maritalStatus = maritalStatus;
-        this.hasChildren = hasChildren;
-        this.typeOfLiving = typeOfLiving;
-        this.hasMortgage = hasMortgage;
-        this.hasBufferSavings = hasBufferSavings;
-        this.hasChildSavings = hasChildSavings;
-        this.hasInsurance = hasInsurance;
-        this.hasPensionSavings = hasPensionSavings;
+
     }
 
     public Customer(String persNo, String firstName, String lastName) {
@@ -83,77 +95,7 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getMaritalStatus() {
-        return maritalStatus;
-    }
-
-    public void setMaritalStatus(String maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    public boolean isHasChildren() {
-        return hasChildren;
-    }
-
-    public void setHasChildren(boolean hasChildren) {
-        this.hasChildren = hasChildren;
-    }
-
-    public String getTypeOfLiving() {
-        return typeOfLiving;
-    }
-
-    public void setTypeOfLiving(String typeOfLiving) {
-        this.typeOfLiving = typeOfLiving;
-    }
-
-    public boolean isHasMortgage() {
-        return hasMortgage;
-    }
-
-    public void setHasMortgage(boolean hasMortgage) {
-        this.hasMortgage = hasMortgage;
-    }
-
-    public boolean isHasBufferSavings() {
-        return hasBufferSavings;
-    }
-
-    public void setHasBufferSavings(boolean hasBufferSavings) {
-        this.hasBufferSavings = hasBufferSavings;
-    }
-
-    public boolean isHasChildSavings() {
-        return hasChildSavings;
-    }
-
-    public void setHasChildSavings(boolean hasChildSavings) {
-        this.hasChildSavings = hasChildSavings;
-    }
-
-    public boolean isHasInsurance() {
-        return hasInsurance;
-    }
-
-    public void setHasInsurance(boolean hasInsurance) {
-        this.hasInsurance = hasInsurance;
-    }
-
-    public boolean isHasPensionSavings() {
-        return hasPensionSavings;
-    }
-
-    public void setHasPensionSavings(boolean hasPensionSavings) {
-        this.hasPensionSavings = hasPensionSavings;
-    }
 //i DB endast en tabell just nu va rtvungen att radera
 //lägg till unique i customer tabell på persNo
 //spelar ingen roll vilka villkor som ligger i databas (unique, not null etc) då constructor styr hur man kan skapar objekt
