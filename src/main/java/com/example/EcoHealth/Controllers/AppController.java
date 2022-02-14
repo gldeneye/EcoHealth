@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class AppController {
@@ -97,16 +99,24 @@ public class AppController {
         System.out.println("Kund har bolån? " + session.getAttribute("hasMortgage"));
 
 
-        List<Boolean> agreements = new ArrayList<>();
-        agreements.add((boolean) session.getAttribute("hasMortgage"));
-        agreements.add((boolean) session.getAttribute("hasBufferSavings"));
-        agreements.add((boolean) session.getAttribute("hasChildSavings"));
-        agreements.add((boolean) session.getAttribute("hasInsurance"));
-        agreements.add((boolean) session.getAttribute("hasPensionSavings"));
+//        List<Boolean> agreements = new ArrayList<>();
+//        agreements.add((boolean) session.getAttribute("hasMortgage"));
+//        agreements.add((boolean) session.getAttribute("hasBufferSavings"));
+//        agreements.add((boolean) session.getAttribute("hasChildSavings"));
+//        agreements.add((boolean) session.getAttribute("hasInsurance"));
+//        agreements.add((boolean) session.getAttribute("hasPensionSavings"));
+//        model.addAttribute("agreements", agreements);
+//
+//        System.out.println(agreements.get(0));
+
+
+        HashMap<String, Boolean> agreements = new HashMap<>();
+        agreements.put("hasMortgage", (boolean)session.getAttribute("hasMortgage"));
+        agreements.put("hasBufferSavings",(boolean) session.getAttribute("hasBufferSavings"));
+        agreements.put("hasChildSavings",(boolean) session.getAttribute("hasChildSavings"));
+        agreements.put("hasInsurance",(boolean) session.getAttribute("hasInsurance"));
+        agreements.put("hasPensionSavings",(boolean) session.getAttribute("hasPensionSavings"));
         model.addAttribute("agreements", agreements);
-
-        System.out.println(agreements.get(0));
-
 
         return "result";
     }

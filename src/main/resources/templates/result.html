@@ -19,11 +19,15 @@
     </div>
 
     <div class="innercontent">
-
-        <div class="loop" th:each="agreement: ${agreements}">
-            <div th:if="${agreement} == true">HallåHallå</div>
-            <div th:if="${agreement} == false">HejdåHejdå</div>
-        </div>
+        <table>
+        <tr class="loop1" th:each="agreement: ${agreements}">
+            <td th:if="${agreement.value} == true" th:text="${agreement.key}"></td>
+        </tr>
+        <tr class="loop2" th:each="agreement: ${agreements}">
+            <td th:if="${agreement.value} == false" th:text="${agreement.key}"></td>
+        </tr>
+        </table>
+    </div>
 
 <!--        <div class="bolån">-->
 <!--            <div th:text="${hasMortgage} ? 'Bolån saknas...' : 'Ni har bolån!'"></div>-->
