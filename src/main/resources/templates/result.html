@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
 <div class="headcontent">
     <h2>Ditt resultat</h2>
 </div>
@@ -18,12 +19,35 @@
     <div class="progresswheel">
     </div>
 
-    <div class="innercontent">
+    <div class="agreements">
 
-        <div class="loop" th:each="agreement: ${agreements}">
-            <div th:if="${agreement} == true">HallåHallå</div>
-            <div th:if="${agreement} == false">HejdåHejdå</div>
+        <div class="hasAgreements" th:if="${show}">
+            <h1>Du har:</h1>
+            <tr th:each="instance : ${hasAgreements}">
+                <div>
+                    <img src="..static/img/green.jpg" th:src="'/img/green.jpg'" alt="green" height="100" width="100">
+                    <td th:text="${instance.value}">keyvalue</td>
+                    <br>
+                </div>
+            </tr>
         </div>
+
+        <div class="doesNotHaveAgreements" th:if="${show2}">
+            <h1>Du saknar:</h1>
+            <tr th:each="instance : ${doesNotHaveAgreements}">
+                <div>
+                    <img src="../static/img/red.jpg" th:src="'/img/red.jpg'" alt="red" height="100" width="100">
+                    <td th:text="${instance.value}">keyvalue</td>
+                    <br>
+
+                    <!-- eventuellt till hashmap som håller beskrivning av tjänsten + href -->
+   <!--                 <div th:object="${products}" th:text="*{products}">1</th:text>-->
+
+        </div>
+        </tr>
+    </div>
+
+</div>
 
 <!--        <div class="bolån">-->
 <!--            <div th:text="${hasMortgage} ? 'Bolån saknas...' : 'Ni har bolån!'"></div>-->
@@ -41,7 +65,6 @@
 <!--            <p th:if="${customer.hasPensionSavings}">Ni har ett pensionssparande!</p>-->
 <!--        </div>-->
 
-    </div>
 </div>
 
 </body>
