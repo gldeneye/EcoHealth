@@ -157,4 +157,25 @@ public class CustomerRepository {
         }
         return email;
     }
+
+    public String getFullName(String persNo) {
+        String firstName = "John";
+        String lastName = "Doe";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement("SELECT FIRSTNAME, LASTNAME FROM CUSTOMER WHERE PERSNO = ?")) {
+
+            ps.setString(1,persNo);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                firstName = rs.getString(1);
+                lastName = rs.getString(2);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return firstName + "_" + lastName;
+    }
+
+
 }

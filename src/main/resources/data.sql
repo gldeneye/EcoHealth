@@ -23,9 +23,9 @@ INSERT INTO MaritalStatus(Name) VALUES ('Single');
 INSERT INTO MaritalStatus(Name) VALUES ('Sambo');
 INSERT INTO MaritalStatus(Name) VALUES ('Married');
 INSERT INTO Accommodation(Name) VALUES ('Rental');
-INSERT INTO Accommodation(Name) VALUES ('Property asset');
-INSERT INTO Accommodation(Name) VALUES ('Apartment asset');
+INSERT INTO Accommodation(Name) VALUES ('Ownership');
 
 INSERT INTO CustomerInfo(CustomerId, MaritalStatusID, Children, AccommodationId) VALUES (1, 1, 0, 1);
 INSERT INTO CustomerInfo(CustomerId, MaritalStatusID, Children, AccommodationId) VALUES (2, 2, 1, 1);
-INSERT INTO CustomerInfo(CustomerId, MaritalStatusID, Children, AccommodationId) VALUES (3, 2, 0, 3);
+INSERT INTO CustomerInfo(CustomerId, MaritalStatusID, Children, AccommodationId) VALUES (3, 2, 0, 2);
+INSERT INTO CustomerInfo(CustomerId, MaritalStatusID, Children, AccommodationId) VALUES (4, 1, 1, 2);

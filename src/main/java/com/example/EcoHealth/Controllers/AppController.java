@@ -38,6 +38,28 @@ public class AppController {
            boolean hasPensionsSavings = customerRepository.checkProduct(persNo,"PensionsSavings");
            boolean hasInsurance = customerRepository.checkProduct(persNo,"Insurance");
 
+           boolean hasChildren = customerRepository.getHasChildren(persNo);
+           customer.setHasChildren(hasChildren);
+
+           String maritalStatus = customerRepository.getMaritalOrAccommodationStatus(persNo, "maritalStatus");
+           customer.setMaritalStatus(maritalStatus);
+
+           String typeOfLiving = customerRepository.getMaritalOrAccommodationStatus(persNo, "accommodation");
+           customer.setTypeOfLiving(typeOfLiving);
+
+           String getEmail = customerRepository.getEmail(persNo);
+           customer.setEmail(getEmail);
+
+           String retrieveFullName = customerRepository.getFullName(persNo);
+           customer.setFirstName(retrieveFullName.split("_")[0]);
+           customer.setLastName(retrieveFullName.split("_")[1]);
+
+//           System.out.println(customer.getFirstName() + "" + customer.getLastName());
+//           System.out.println("Has children: " + hasChildren);
+//           System.out.println("Marital status: " + maritalStatus);
+//           System.out.println("Type of living: " + typeOfLiving);
+//           System.out.println("Email: " + getEmail);
+
 
            model.addAttribute("hasMortgage", hasMortgage);
            model.addAttribute("hasBufferSavings", hasBufferSavings);
@@ -45,13 +67,12 @@ public class AppController {
            model.addAttribute("hasInsurance", hasInsurance);
            model.addAttribute("hasPensionSavings", hasPensionsSavings);
 
-           System.out.println("Mortgage: " + hasMortgage);
-           System.out.println("Buffer: " + hasBufferSavings);
-           System.out.println("Child Savings: " + hasChildrensSavings);
-           System.out.println("Insurance: " + hasInsurance);
-           System.out.println("Pension Savings: " + hasPensionsSavings);
+//           System.out.println("Mortgage: " + hasMortgage);
+//           System.out.println("Buffer: " + hasBufferSavings);
+//           System.out.println("Child Savings: " + hasChildrensSavings);
+//           System.out.println("Insurance: " + hasInsurance);
+//           System.out.println("Pension Savings: " + hasPensionsSavings);
 
-           session.setAttribute("hasMortgage", hasMortgage);
            return "form";
        }
        else {

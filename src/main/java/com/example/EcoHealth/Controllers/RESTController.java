@@ -39,4 +39,11 @@ public class RESTController {
     public String checkEmail (@PathVariable String persNo) {
         return customerRepository.getEmail(persNo);
     }
+
+    @GetMapping("/restFullName/{persNo}")
+    public String checkFullName (@PathVariable String persNo) {
+        return customerRepository.getFullName(persNo);
+    }
+
+
 }
