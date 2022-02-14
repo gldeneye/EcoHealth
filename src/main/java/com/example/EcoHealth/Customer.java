@@ -10,9 +10,15 @@ public class Customer {
     private String maritalStatus;
     private boolean hasChildren;
     private String typeOfLiving;
+    private boolean hasMortgage;
+    private boolean hasBufferSavings;
+    private boolean hasChildSavings;
+    private boolean hasInsurance;
+    private boolean hasPensionSavings;
 
 
-    public Customer(int id, String persNo, String password, String firstName, String lastName, String email, String maritalStatus, boolean hasChildren, String typeOfLiving) {
+
+    public Customer(int id, String persNo, String password, String firstName, String lastName, String email, String maritalStatus, boolean hasChildren, String typeOfLiving, boolean hasMortgage, boolean hasBufferSavings, boolean hasChildSavings, boolean hasInsurance, boolean hasPensionSavings) {
         this.id = id;
         this.persNo = persNo;
         this.password = password;
@@ -22,6 +28,11 @@ public class Customer {
         this.maritalStatus = maritalStatus;
         this.hasChildren = hasChildren;
         this.typeOfLiving = typeOfLiving;
+        this.hasMortgage = hasMortgage;
+        this.hasBufferSavings = hasBufferSavings;
+        this.hasChildSavings = hasChildSavings;
+        this.hasInsurance = hasInsurance;
+        this.hasPensionSavings = hasPensionSavings;
     }
 
     public Customer(String persNo, String firstName, String lastName) {
@@ -106,7 +117,47 @@ public class Customer {
         this.typeOfLiving = typeOfLiving;
     }
 
-//i DB endast en tabell just nu va rtvungen att radera
+    public boolean isHasMortgage() {
+        return hasMortgage;
+    }
+
+    public void setHasMortgage(boolean hasMortgage) {
+        this.hasMortgage = hasMortgage;
+    }
+
+    public boolean isHasBufferSavings() {
+        return hasBufferSavings;
+    }
+
+    public void setHasBufferSavings(boolean hasBufferSavings) {
+        this.hasBufferSavings = hasBufferSavings;
+    }
+
+    public boolean isHasChildSavings() {
+        return hasChildSavings;
+    }
+
+    public void setHasChildSavings(boolean hasChildSavings) {
+        this.hasChildSavings = hasChildSavings;
+    }
+
+    public boolean isHasInsurance() {
+        return hasInsurance;
+    }
+
+    public void setHasInsurance(boolean hasInsurance) {
+        this.hasInsurance = hasInsurance;
+    }
+
+    public boolean isHasPensionSavings() {
+        return hasPensionSavings;
+    }
+
+    public void setHasPensionSavings(boolean hasPensionSavings) {
+        this.hasPensionSavings = hasPensionSavings;
+    }
+
+    //i DB endast en tabell just nu va rtvungen att radera
 //lägg till unique i customer tabell på persNo
 //spelar ingen roll vilka villkor som ligger i databas (unique, not null etc) då constructor styr hur man kan skapar objekt
 // ändra från resultset to prepaerd statment för att skydda lösenord

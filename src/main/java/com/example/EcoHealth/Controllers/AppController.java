@@ -73,6 +73,8 @@ public class AppController {
 //           System.out.println("Insurance: " + hasInsurance);
 //           System.out.println("Pension Savings: " + hasPensionsSavings);
 
+           session.setAttribute("hasMortgage", hasMortgage);
+
            return "form";
        }
        else {
