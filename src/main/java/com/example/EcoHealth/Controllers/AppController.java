@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class AppController {
@@ -74,6 +76,10 @@ public class AppController {
 //           System.out.println("Pension Savings: " + hasPensionsSavings);
 
            session.setAttribute("hasMortgage", hasMortgage);
+           session.setAttribute("hasBufferSavings", hasBufferSavings);
+           session.setAttribute("hasChildSavings", hasChildrensSavings);
+           session.setAttribute("hasInsurance", hasInsurance);
+           session.setAttribute("hasPensionSavings", hasPensionsSavings);
 
            return "form";
        }
@@ -89,6 +95,19 @@ public class AppController {
         model.addAttribute("tokens", tokens);
         model.addAttribute(session.getAttribute("hasMortgage"));
         System.out.println("Kund har bolån? " + session.getAttribute("hasMortgage"));
+
+
+        List<Boolean> agreements = new ArrayList<>();
+        agreements.add((boolean) session.getAttribute("hasMortgage"));
+        agreements.add((boolean) session.getAttribute("hasBufferSavings"));
+        agreements.add((boolean) session.getAttribute("hasChildSavings"));
+        agreements.add((boolean) session.getAttribute("hasInsurance"));
+        agreements.add((boolean) session.getAttribute("hasPensionSavings"));
+        model.addAttribute("agreements", agreements);
+
+        System.out.println(agreements.get(0));
+
+
         return "result";
     }
 
