@@ -15,6 +15,7 @@ import javax.websocket.Session;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class AppController {
@@ -97,41 +98,43 @@ public class AppController {
         System.out.println("Kund har bolån? " + session.getAttribute("hasMortgage"));
 
 
-        HashMap<String, String> hasAgreements = new HashMap<>();
-        HashMap<String, String> doesNotHaveAgreements = new HashMap<>();
+        HashMap<String, Product> hasAgreements = new HashMap<>();
+        HashMap<String, Product> doesNotHaveAgreements = new HashMap<>();
+
+        Product Mortgage = new Product("Mortgage", "Flytta ditt bolån till Handelsbanken och tjäna XX st Scotte coins","#");
+        Product Buffer = new Product("Buffer", "Trygga din ekonomi med en buffert för oförusedda utgifter", "#");
+        Product ChildrenSavings = new Product("ChildrenSavings","Barnspar", "#");
+        Product PensionSavings = new Product("PensionSavings", "Pensionsspar", "#");
+        Product Insurance = new Product("Insurance","Försäkring", "#");
 
         if ((boolean) session.getAttribute("hasMortgage")) {
-            hasAgreements.put("hasMortgage", "Bolån");
+            hasAgreements.put("hasMortgage", Mortgage);
         } else {
-            doesNotHaveAgreements.put("hasMortgage", "Bolån");
-        }
-        ;
+            doesNotHaveAgreements.put("hasMortgage", Mortgage);
+        };
 
         if ((boolean) session.getAttribute("hasChildSavings")) {
-            hasAgreements.put("hasChildSavings", "Sparande till barn");
+            hasAgreements.put("hasChildSavings", ChildrenSavings);
         } else {
-            doesNotHaveAgreements.put("hasChildSavings", "Sparande till barn");
-        }
-        ;
+            doesNotHaveAgreements.put("hasChildSavings", ChildrenSavings);
+        };
 
         if ((boolean) session.getAttribute("hasBufferSavings")) {
-            hasAgreements.put("hasBufferSavings", "Buffertsparande");
+            hasAgreements.put("hasBufferSavings", Buffer);
         } else {
-            doesNotHaveAgreements.put("hasBufferSavings", "Buffertsparande");
-        }
-        ;
+            doesNotHaveAgreements.put("hasBufferSavings", Buffer);
+        };
 
         if ((boolean) session.getAttribute("hasInsurance")) {
-            hasAgreements.put("hasInsurance", "Försäkring/-ar");
+            hasAgreements.put("hasInsurance", Insurance);
         } else {
-            doesNotHaveAgreements.put("hasInsurance", "Försäkring/-ar");
-        }
-        ;
+            doesNotHaveAgreements.put("hasInsurance", Insurance);
+        };
 
         if ((boolean) session.getAttribute("hasPensionSavings")) {
-            hasAgreements.put("hasPensionSavings", "Pensionssparande");
+            hasAgreements.put("hasPensionSavings", PensionSavings);
         } else {
-            doesNotHaveAgreements.put("hasPensionSavings", "Pensionssparande");
+            doesNotHaveAgreements.put("hasPensionSavings", PensionSavings);
         };
 
         /*agreements.put("buffert", (boolean) session.getAttribute("hasBufferSavings"));
@@ -145,31 +148,30 @@ public class AppController {
         boolean show = false;
         if (hasAgreements.size()>0) {
             show = true;
-        }
+        };
 
         boolean show2 = false;
         if (doesNotHaveAgreements.size()>0) {
             show2 = true;
-        }
+        };
 
         model.addAttribute("show2", show2);
         model.addAttribute("show", show);
 
-
-        Product Mortgage = new Product("Mortgage", "Flytta ditt bolån till Handelsbanken och tjäna XX st Scotte coins","#");
+        /*Product Mortgage = new Product("Mortgage", "Flytta ditt bolån till Handelsbanken och tjäna XX st Scotte coins","#");
         Product Buffer = new Product("Buffer", "Trygga din ekonomi med en buffert för oförusedda utgifter", "#");
         Product ChildrenSavings = new Product("ChildrenSavings","Barnspar", "#");
         Product PensionSavings = new Product("PensionSavings", "Pensionsspar", "#");
         Product Insurance = new Product("Insurance","Försäkring", "#");
-
+*//*
         HashMap<Integer, Product> products = new HashMap<>();
         products.put(1, Mortgage);
         products.put(2, Buffer);
         products.put(3, ChildrenSavings);
         products.put(4, PensionSavings);
-        products.put(5, Insurance);
+        products.put(5, Insurance);*/
 
-        model.addAttribute("products", products);
+/*        model.addAttribute("products", products);*/
 
         return "result";
     }

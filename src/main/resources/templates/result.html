@@ -37,14 +37,16 @@
             <tr th:each="instance : ${doesNotHaveAgreements}">
                 <div>
                     <img src="../static/img/red.jpg" th:src="'/img/red.jpg'" alt="red" height="100" width="100">
-                    <td th:text="${instance.value}">keyvalue</td>
+                    <td th:text="${instance.value.getName()}">Produktnamn</td>
+                    <td th:text="${instance.value.getDescription()}">Beskrivning</td>
+                    <td th:text="${instance.value.getHref()}">Href</td>
                     <br>
 
                     <!-- eventuellt till hashmap som håller beskrivning av tjänsten + href -->
-                    <div th:object="${products}" th:text="*{get(1)}">1</th:text>
+                    <!--<div th:object="${products}" th:text="${products['${instance.value}']}">1</th:text>-->
 
         </div>
-        </tr>
+
     </div>
 
 </div>
