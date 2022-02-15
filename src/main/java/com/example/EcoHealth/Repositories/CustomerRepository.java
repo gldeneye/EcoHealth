@@ -2,6 +2,7 @@ package com.example.EcoHealth.Repositories;
 
 import com.example.EcoHealth.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class CustomerRepository {
              Statement statement = conn.createStatement();
              ResultSet rs = statement.executeQuery("SELECT * FROM CUSTOMER")) {
 
-           while (rs.next()) {
+            while (rs.next()) {
                 Customer customer = new Customer(rs.getString("persNo"), rs.getString("firstName"), rs.getString("lastName"));
                 customers.add(customer);
             }
@@ -39,8 +40,8 @@ public class CustomerRepository {
         Boolean result = false;
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("SELECT PASSWORD FROM CUSTOMER WHERE PERSNO = ?")) {
-                ps.setString(1, persNo);
-                ResultSet rs = ps.executeQuery();
+            ps.setString(1, persNo);
+            ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 result = rs.getString("password").equals(password);
@@ -56,10 +57,10 @@ public class CustomerRepository {
     public int calcCustomerTokens(String persNo) {
         int numOfTokens = 0;
         try (Connection conn = dataSource.getConnection();
-        PreparedStatement ps = conn.prepareStatement("SELECT SUM (NUMBEROFTOKENS) FROM AGREEMENT "+
-                "INNER JOIN PRODUCT ON AGREEMENT.PRODUCTID = PRODUCT.ID " +
-                "INNER JOIN CUSTOMER ON AGREEMENT.CUSTOMERID = CUSTOMER.ID " +
-                "WHERE CUSTOMER.PERSNO =?")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT SUM (NUMBEROFTOKENS) FROM AGREEMENT "+
+                     "INNER JOIN PRODUCT ON AGREEMENT.PRODUCTID = PRODUCT.ID " +
+                     "INNER JOIN CUSTOMER ON AGREEMENT.CUSTOMERID = CUSTOMER.ID " +
+                     "WHERE CUSTOMER.PERSNO =?")) {
 
             ps.setString(1,persNo);
             ResultSet rs = ps.executeQuery();
@@ -77,11 +78,11 @@ public class CustomerRepository {
         int flag = 0;
         boolean hasproduct = false;
         try (Connection conn = dataSource.getConnection();
-        PreparedStatement ps = conn.prepareStatement("select count (*) " +
-                "from agreement " +
-                "inner join product on product.id = agreement.productid " +
-                "inner join customer on agreement.customerid = customer.id " +
-                "where customer.persNo = ? and product.name = ?")) {
+             PreparedStatement ps = conn.prepareStatement("select count (*) " +
+                     "from agreement " +
+                     "inner join product on product.id = agreement.productid " +
+                     "inner join customer on agreement.customerid = customer.id " +
+                     "where customer.persNo = ? and product.name = ?")) {
 
             ps.setString(1,persNo);
             ps.setString(2,productType);
@@ -99,75 +100,82 @@ public class CustomerRepository {
         return hasproduct;
     }
 
-//    public Boolean getHasChildrenFromDB(String persNo) {
-//        Boolean hasChildren = false;
-//        try (Connection conn = dataSource.getConnection();
-//             Statement statement = conn.createStatement();
-//             ResultSet rs = statement.executeQuery("SELECT CUSTOMER.ID, CUSTOMERINFO.Children\n" +
-//                     "FROM CUSTOMER \n" +
-//                     "LEFT JOIN CUSTOMERINFO \n" +
-//                     "ON CUSTOMER.ID = CUSTOMERINFO.CUSTOMERID\n" +
-//                     "WHERE CUSTOMER.PERSNO = '" + persNo + "'")) {
-//            if (rs.next()) {
-//                hasChildren = rs.getBoolean("Children");
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return hasChildren;
-//    }
-//
-//    public String getInfoType(String persNo, String infoType) {
-//        String type = "unknown";
-//        try (Connection conn = dataSource.getConnection();
-//             PreparedStatement ps = conn.prepareStatement("SELECT CUSTOMERINFO.?" +
-//                     "FROM CUSTOMER " +
-//                     "LEFT JOIN CUSTOMERINFO  " +
-//                     "ON CUSTOMER.ID = CUSTOMERINFO.CUSTOMERID " +
-//                     "WHERE CUSTOMER.PERSNO = ?")) {
-//
-//            ps.setString(1,infoType);
-//            ps.setString(2,persNo);
-//            ResultSet rs = ps.executeQuery();
-//
-//            if (rs.next()) {
-//                type = rs.getString(1);
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return type;
-//    }
-//
-//    public String getTypeOfLivingFromDB(String persNo) {
-//        String typeOfLiving = "unknown";
-//        try (Connection conn = dataSource.getConnection();
-//             Statement statement = conn.createStatement();
-//             ResultSet rs = statement.executeQuery("SELECT CUSTOMER.ID, CUSTOMERINFO.ACCOMMODATION\n" +
-//                     "FROM CUSTOMER \n" +
-//                     "LEFT JOIN CUSTOMERINFO \n" +
-//                     "ON CUSTOMER.ID = CUSTOMERINFO.CUSTOMERID\n" +
-//                     "WHERE CUSTOMER.PERSNO = '" + persNo + "'")) {
-//            if (rs.next()) {
-//                typeOfLiving = rs.getString("ACCOMMODATION");
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return typeOfLiving;
-//    }
-//
-//    public String getEmailFromDB(String persNo) {
-//        String email = "unknown";
-//        try (Connection conn = dataSource.getConnection();
-//             Statement statement = conn.createStatement();
-//             ResultSet rs = statement.executeQuery("SELECT EMAIL FROM CUSTOMER WHERE PERSNO= '" + persNo + "'")) {
-//            if (rs.next()) {
-//                email = rs.getString("email");
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return email;
-//    }
+    public Boolean getHasChildren(String persNo) {
+        Boolean hasChildren = false;
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement("SELECT CHILDREN " +
+                     "FROM CUSTOMERINFO " +
+                     "INNER JOIN CUSTOMER ON CUSTOMERINFO.CUSTOMERID = CUSTOMER.ID " +
+                     "WHERE CUSTOMER.PERSNO = ?")) {
+            ps.setString(1, persNo);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                hasChildren = rs.getBoolean(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hasChildren;
+    }
+    //
+    public String getMaritalOrAccommodationStatus(String persNo, String infoType) {
+        //"maritalStatus" eller "accommodation" som andra in-parameter
+        String type = "unknown";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement("SELECT " + infoType + ".NAME " +
+                     "FROM CUSTOMERINFO " +
+                     "INNER JOIN CUSTOMER ON CUSTOMERINFO.CUSTOMERID = CUSTOMER.ID " +
+                     "INNER JOIN " + infoType + " ON CUSTOMERINFO." + infoType + "ID = " + infoType + ".ID " +
+                     "WHERE CUSTOMER.PERSNO = ?")) {
+
+            ps.setString(1,persNo);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                type = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return type;
+    }
+
+    public String getEmail(String persNo) {
+        String email = "unknown";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement("SELECT EMAIL FROM CUSTOMER WHERE PERSNO = ?")) {
+
+            ps.setString(1,persNo);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                email = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return email;
+    }
+
+    public String getFullName(String persNo) {
+        String firstName = "John";
+        String lastName = "Doe";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement("SELECT FIRSTNAME, LASTNAME FROM CUSTOMER WHERE PERSNO = ?")) {
+
+            ps.setString(1,persNo);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                firstName = rs.getString(1);
+                lastName = rs.getString(2);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return firstName + "_" + lastName;
+    }
+
+
 }

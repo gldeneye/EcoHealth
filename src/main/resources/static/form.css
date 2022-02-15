@@ -1,23 +1,65 @@
 body {
     font-family: Helvetica, Arial, sans-serif;
-}
 
+
+}
+.headcontent {
+    background-color:#005fa5;
+    overflow: hidden;
+    border-bottom: 1px solid #fff;
+    }
 ul {
     list-style: none;
-    padding: 0;  
+    padding: 0;
 }
+p {
+font-size: 20px;
 
+}
 h1 {
+    padding: 35px, 35px, 35px, 0px;
     color: #005fa5;
-}
+    font-size: 50px;
 
-div {
-    background-color: rgba(233, 233, 233, 0.993);
-    border-radius: 50px;
-    padding: 25px;
+
+}
+.card-body  {
+    background-color: rgba(233, 233, 233, 1);
+    border-radius: 5px;
+    padding: 45px;
+    margin: 50px 0px 100px 200px;
+    display: block;
+    max-width:750px
+
+    }
+form {
+margin-left: 100px;
+}
+.card-title{
+margin-left: 100px;
+
 }
 
 text {
     font-size: 50%;
-}
 
+}
+.checkbox .radio {
+font-size: 17px;
+}
+.button {
+    position: flex;
+    background-color: #005fa5;
+    color: white;
+    /*margin-right: 25px;*/
+    font-size: 20px;
+    padding: 2px 12px;
+    /*border: none;*/
+    cursor: hand;
+    color:  white;
+    border-radius: 5px;
+    margin: 55px, 0px, 0px, 0px;
+    }
+.input {
+/*text-align: center;*/
+}

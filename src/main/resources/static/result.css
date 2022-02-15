@@ -1,90 +1,93 @@
-nes (55 sloc)  1.27 KB
 body {
-    background-color: #f6f6f6;
-}
-.headcontent {
-    background-color:#043b62;
-    overflow: hidden;
-    border-bottom: 1px solid #fff;
-}
-h2 {
-    color: white;
-}
-.bodycontent {
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    height: 1000px;
-    border: 1px solid gray;
-    background-color: #ebebeb;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-}
-.bodycontent, .innercontent{
-    max-width: 700px;
-}
-.bolån, .buffert, .barnspar, .tryggförs, .pensionsspar, {
-max-width: 700px;
-}
-.currentscore {
-    max-width: fit-content;
-    font-size: 70px;
-    margin-top: 50px;
-    margin-left: 30px;
-    padding: 10px 10px;
-    font-family: Georgia, sans-serif;
-    border: solid 1px gray;
-    border-radius: 10px;
-    background-color: #d3d3d3;
-    color: #080808;
-    height: 80px;
-    position: absolute;
-    top: 100px;
-}
-.innercontent{
-    border: solid 1px gray;
-    margin: 20px 20px;
-    border-radius: 10px;
-}
-.bolån {
-    border: solid 1px gray;
-    margin: 20px 30px;
-    border-radius: 10px;
-}
-.buffert{
-    border: solid 1px gray;
-    margin: 20px 30px;
-    border-radius: 10px;
-}
-.barnspar{
-    border: solid 1px gray;
-    margin: 20px 30px;
-    border-radius: 10px;
-}
-.tryggförs{
-    border: solid 1px gray;
-    margin: 20px 30px;
-    border-radius: 10px;
-}
-.pensionsspar{
-    border: solid 1px gray;
-    margin: 20px 30px;
-    border-radius: 10px;
-}
-.innercontent {
-    height: 650px;
-}
-.bolån, .buffert,  .barnspar, .tryggförs, .pensionsspar{
-    padding-top: 25px;
-    padding-bottom: 25px;
-    width: 570px;
-    /* Varför är inte storleken på ämnesboxarna flexibel när man minskar fönstrets storlek? */
-}
-h2 {
- text-align: center;
-    color: white;
-    font-size: 30px;
     font-family: Helvetica, Arial, sans-serif;
-}
+    }
+    h1 {
+        padding: 35px, 35px, 35px, 0px;
+        color:#005fa5;
+        font-size: 50px;
+
+
+
+    }
+    h2 {
+    font-size: 25px;
+    color:#005fa5;
+
+    }
+.headcontent {
+    background-color:#005fa5;
+    border-bottom: 1px solid #fff;
+
+    }
+
+
+    .card-body  {
+        background-color: rgba(233, 233, 233, 1);
+        border-radius: 5px;
+        padding: 45px;
+        margin: 50px 0px 100px 200px;
+        display: block;
+        max-width:750px
+
+        }
+
+
+
+        .score {
+            /*max-width: fit-content;*/
+            /*font-size: 70px;*/
+            margin-top: 50px;
+
+            margin-bottom:100px;
+            padding: 10px 10px;
+            font-family: Helvetica, Arial, sans-serif;
+            border: solid 1px black;
+            border-radius: 5px;
+            background-color: white;
+            color:#005fa5;
+            height: 80px;
+            top: 10px;
+
+            display: inline-block;
+            width: 100%;
+            border: 1px solid #ccc;
+            }
+
+
+        .currentscore {
+         float: left;
+         font-size: 40px
+          }
+       .progresswheel{
+          float: right;
+
+        }
+
+      img { width:20%;
+        height: auto;
+        float: right;
+        }
+
+
+
+
+        .hasAgreements{
+        font-family: Helvetica, Arial, sans-serif;
+        /*width: 650px;*/
+        border: 2px solid green;
+        margin-bottom: 50px;
+        border-radius: 5px;
+        background-color: white;
+
+
+
+        }
+        .doesNotHaveAgreements{
+        font-family: Helvetica, Arial, sans-serif;
+        /*width: 600px;*/
+        border: 2px solid red;
+        /*margin: 50px;*/
+        border-radius: 5px;
+        background-color: white;
+
+        }
