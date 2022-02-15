@@ -32,13 +32,9 @@
                     <input type="text" th:field="*{persNo}" class="form-control" id="socialSecNo" placeholder="Personnummer">
                 </div>
             </div>
-            <!--   <label for="firstName">Förnamn:</label><br>-->
-            <!-- <input type="text" th:field="*{firstName}" id="firstName" name="firstName"><br><br>-->
-            <!-- <label for="lastName">Efternamn:</label><br>
-             <input type="text" th:field="*{lastName}" id="lastName" name="lastName"><br><br>-->
-            <!-- <label for="socialSecNo">Personnummer:</label>
-             <text>ååmmdd-nnnn</text><br>
-             <input type="text" th:field="*{persNo}" id="socialSecNo" name="socialSecNo"><br><br>-->
+
+
+
             <ul class="list">
                 <p>Civilstånd:</p>
                 <li> <input type="radio" th:field="*{maritalStatus}" value="single">Ensamstående</li>
@@ -58,11 +54,11 @@
             </ul>
             <ul class="list">
                 <p>Har produkter/tjänster: </p>
-                <li><input type="checkbox" value="true" th:checked="${hasMortgage}" >Bolån</li>
-                <li><input type="checkbox" value="true" th:checked="${hasBufferSavings}">Buffertspar</li>
-                <li><input type="checkbox" value="true" th:checked="${hasChildSavings}">Barnspar</li>
-                <li><input type="checkbox" value="true" th:checked="${hasInsurance}">Trygghetsförsäkring</li>
-                <li><input type="checkbox" value="true" th:checked="${hasPensionSavings}">Pensionsspar</li>
+                <li><input type="checkbox" disabled="disabled" value="true" th:checked="${hasMortgage}" >Bolån</li>
+                <li><input type="checkbox" disabled="disabled" value="true" th:checked="${hasBufferSavings}">Buffertspar</li>
+                <li><input type="checkbox" disabled="disabled" value="true" th:checked="${hasChildSavings}">Barnspar</li>
+                <li><input type="checkbox" disabled="disabled" value="true" th:checked="${hasInsurance}">Trygghetsförsäkring</li>
+                <li><input type="checkbox" disabled="disabled" value="true" th:checked="${hasPensionSavings}">Pensionsspar</li>
             </ul>
             <!--<button type="submit" class="btn btn-primary btn-block" value="Nästa"></button>-->
             <button type="submit" class="button" value ="Nästa">Nästa</button>
