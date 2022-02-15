@@ -3,20 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Title</title>
-    <link rel="stylesheet" href="result.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/result.css" th:href="'/result.css'">
 </head>
 
 <body>
 
 <div class="headcontent">
-    <h2>Ditt resultat</h2>
+    <h1>Result</h1>
 </div>
-<div class="bodycontent">
+<div class="card"> <!--kropp-->
+<div class="card-body">
+    <h1 class="card-title">Result</h1>
 
+
+
+    <div class=" score">
     <div class="currentscore" th:text="${tokens} + ' sx'">
     </div>
-    <div class="progresswheel">
+    <div class="progresswheel" >
+        <img src="../static/img/egen.jpg" th:src="'/img/egen.jpg'" alt="egen" >
+        <img src="../static/img/egen.jpg" th:src="'/img/egen.jpg'" alt="egen" >
+    </div>
     </div>
 
     <div class="popContainer">
@@ -43,7 +53,8 @@
     <div class="agreements">
 
         <div class="hasAgreements" th:if="${show}">
-            <h1>Du har:</h1>
+
+            <h2>Du har:</h2>
             <tr th:each="instance : ${hasAgreements}">
                 <div>
                     <img src="..static/img/green.jpg" th:src="'/img/green.jpg'" alt="green" height="100" width="100">
@@ -56,7 +67,7 @@
 
 
         <div class="doesNotHaveAgreements" th:if="${show2}">
-            <h1>Du saknar:</h1>
+            <h2>Du saknar:</h2>
             <tr th:each="instance : ${doesNotHaveAgreements}">
                 <div>
                     <img src="../static/img/red.jpg" th:src="'/img/red.jpg'" alt="red" height="100" width="100">
@@ -72,6 +83,12 @@
     </div>
 </div>
 
+
+
+
+</div>
+</div>
+</div>
 </body>
 
 </html>
