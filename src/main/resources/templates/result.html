@@ -27,40 +27,44 @@
         <img src="../static/img/egen.jpg" th:src="'/img/egen.jpg'" alt="egen" >
         <img src="../static/img/egen.jpg" th:src="'/img/egen.jpg'" alt="egen" >
     </div>
-
     </div>
 
+    <img th:src="${image}" src="../static/img/0.jpg" alt="bild">
 
 
     <div class="agreements">
 
         <div class="hasAgreements" th:if="${show}">
+
             <h2>Du har:</h2>
             <tr th:each="instance : ${hasAgreements}">
                 <div>
                     <img src="..static/img/green.jpg" th:src="'/img/green.jpg'" alt="green" height="100" width="100">
-                    <td th:text="${instance.value}">keyvalue</td>
+                    <td th:text="${instance.value.getName()}">Produktnamn</td>
+                    <br>
                     <br>
                 </div>
             </tr>
         </div>
+
 
         <div class="doesNotHaveAgreements" th:if="${show2}">
             <h2>Du saknar:</h2>
             <tr th:each="instance : ${doesNotHaveAgreements}">
                 <div>
                     <img src="../static/img/red.jpg" th:src="'/img/red.jpg'" alt="red" height="100" width="100">
-                    <td th:text="${instance.value}">keyvalue</td>
+                    <td th:text="${instance.value.getName()}">Produktnamn</td>
                     <br>
+                    <td th:text="${instance.value.getDescription()}">Beskrivning</td><br>
+                    <td>
+                        <a th:href="${instance.value.getHref()}" th:text="'Tjäna ' + ${instance.value.getTokens()} + ' Skotte tokens'" target="_blank" />
+                    </td>
+                    <br><br>
                 </div>
-                    <!-- eventuellt till hashmap som håller beskrivning av tjänsten + href -->
-                    <div th:object="${products}" th:text="*{get(1)}">1</th:text>
-
-                    </div>
-            </tr>
         </div>
-
     </div>
+</div>
+
 
 
 

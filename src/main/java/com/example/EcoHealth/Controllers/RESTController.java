@@ -25,8 +25,25 @@ public class RESTController {
         return customerRepository.checkProduct(persNo, productType);
     }
 
-//    @GetMapping("/restType/{persNo}/{infoType}")
-//    public String checkInfoType(@PathVariable String persNo, @PathVariable String infoType) {
-//        return customerRepository.getInfoType(persNo, infoType);
-//    }
+    @GetMapping("/rest/{persNo}/{infoType}")
+    public String checkMaritalOrAccommodation(@PathVariable String persNo, @PathVariable String infoType) {
+        return customerRepository.getMaritalOrAccommodationStatus(persNo, infoType);
+    }
+
+    @GetMapping("/restChildren/{persNo}")
+    public boolean checkChildren (@PathVariable String persNo) {
+        return customerRepository.getHasChildren(persNo);
+    }
+
+    @GetMapping("/restEmail/{persNo}")
+    public String checkEmail (@PathVariable String persNo) {
+        return customerRepository.getEmail(persNo);
+    }
+
+    @GetMapping("/restFullName/{persNo}")
+    public String checkFullName (@PathVariable String persNo) {
+        return customerRepository.getFullName(persNo);
+    }
+
+
 }

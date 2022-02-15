@@ -118,7 +118,7 @@ public class CustomerRepository {
         }
         return hasChildren;
     }
-    //
+
     public String getMaritalOrAccommodationStatus(String persNo, String infoType) {
         //"maritalStatus" eller "accommodation" som andra in-parameter
         String type = "unknown";
@@ -175,6 +175,26 @@ public class CustomerRepository {
             e.printStackTrace();
         }
         return firstName + "_" + lastName;
+    }
+
+    public int getNumberOfAgreements(String persNo) {
+        int numOfAgreements = 0;
+        try(Connection conn = dataSource.getConnection();
+        PreparedStatement ps = conn.prepareStatement("SELECT COUNT (*) " +
+                "FROM AGREEMENT " +
+                "INNER JOIN CUSTOMER ON CUSTOMER.ID = AGREEMENT.CUSTOMERID " +
+                "WHERE CUSTOMER.PERSNO = ?")) {
+
+            ps.setString(1,persNo);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                numOfAgreements = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return numOfAgreements;
     }
 
 

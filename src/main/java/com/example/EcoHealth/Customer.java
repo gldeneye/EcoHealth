@@ -16,6 +16,8 @@ public class Customer {
     private boolean hasInsurance;
     private boolean hasPensionSavings;
 
+
+
     public Customer(int id, String persNo, String password, String firstName, String lastName, String email, String maritalStatus, boolean hasChildren, String typeOfLiving, boolean hasMortgage, boolean hasBufferSavings, boolean hasChildSavings, boolean hasInsurance, boolean hasPensionSavings) {
         this.id = id;
         this.persNo = persNo;
@@ -154,7 +156,8 @@ public class Customer {
     public void setHasPensionSavings(boolean hasPensionSavings) {
         this.hasPensionSavings = hasPensionSavings;
     }
-//i DB endast en tabell just nu va rtvungen att radera
+
+    //i DB endast en tabell just nu va rtvungen att radera
 //lägg till unique i customer tabell på persNo
 //spelar ingen roll vilka villkor som ligger i databas (unique, not null etc) då constructor styr hur man kan skapar objekt
 // ändra från resultset to prepaerd statment för att skydda lösenord
