@@ -98,17 +98,28 @@ public class AppController {
         model.addAttribute(session.getAttribute("hasMortgage"));
         System.out.println("Kund har bolån? " + session.getAttribute("hasMortgage"));
 
+        int numOfAgreements = customerRepository.getNumberOfAgreements(customer.getPersNo());
+        switch (numOfAgreements) {
+            case(0):
+                model.addAttribute("image", "/img/0.jpg");
+                break;
+            case(1):
+                model.addAttribute("image", "/img/20.jpg");
+                break;
+            case(2):
+                model.addAttribute("image", "/img/40.jpg");
+                break;
+            case(3):
+                model.addAttribute("image", "/img/60.jpg");
+                break;
+            case(4):
+                model.addAttribute("image", "/img/80.jpg");
+                break;
+            case(5):
+                model.addAttribute("image", "/img/100.jpg");
+                break;
 
-//        List<Boolean> agreements = new ArrayList<>();
-//        agreements.add((boolean) session.getAttribute("hasMortgage"));
-//        agreements.add((boolean) session.getAttribute("hasBufferSavings"));
-//        agreements.add((boolean) session.getAttribute("hasChildSavings"));
-//        agreements.add((boolean) session.getAttribute("hasInsurance"));
-//        agreements.add((boolean) session.getAttribute("hasPensionSavings"));
-//        model.addAttribute("agreements", agreements);
-//
-//        System.out.println(agreements.get(0));
-
+        }
 
         HashMap<String, Boolean> agreements = new HashMap<>();
         agreements.put("hasMortgage", (boolean)session.getAttribute("hasMortgage"));
