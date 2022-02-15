@@ -13,7 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+
 
 @Controller
 public class AppController {
@@ -99,6 +105,38 @@ public class AppController {
         System.out.println("Kund har bolån? " + session.getAttribute("hasMortgage"));
 
 
+        int numOfAgreements = customerRepository.getNumberOfAgreements(customer.getPersNo());
+        switch (numOfAgreements) {
+            case(0):
+                model.addAttribute("image", "/img/0.jpg");
+                break;
+            case(1):
+                model.addAttribute("image", "/img/20.jpg");
+                break;
+            case(2):
+                model.addAttribute("image", "/img/40.jpg");
+                break;
+            case(3):
+                model.addAttribute("image", "/img/60.jpg");
+                break;
+            case(4):
+                model.addAttribute("image", "/img/80.jpg");
+                break;
+            case(5):
+                model.addAttribute("image", "/img/100.jpg");
+                break;
+
+        }
+
+        HashMap<String, Boolean> agreements = new HashMap<>();
+        agreements.put("hasMortgage", (boolean)session.getAttribute("hasMortgage"));
+        agreements.put("hasBufferSavings",(boolean) session.getAttribute("hasBufferSavings"));
+        agreements.put("hasChildSavings",(boolean) session.getAttribute("hasChildSavings"));
+        agreements.put("hasInsurance",(boolean) session.getAttribute("hasInsurance"));
+        agreements.put("hasPensionSavings",(boolean) session.getAttribute("hasPensionSavings"));
+        model.addAttribute("agreements", agreements);
+
+
         HashMap<String, Product> hasAgreements = new HashMap<>();
         HashMap<String, Product> doesNotHaveAgreements = new HashMap<>();
 
@@ -179,6 +217,7 @@ public class AppController {
         products.put(5, Insurance);*/
 
 /*        model.addAttribute("products", products);*/
+
 
         return "result";
     }

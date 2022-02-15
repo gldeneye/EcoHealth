@@ -19,6 +19,10 @@
     <div class="progresswheel">
     </div>
 
+
+    <img th:src="${image}" src="../static/img/0.jpg" alt="bild">
+
+
     <div class="agreements">
 
         <div class="hasAgreements" th:if="${show}">
@@ -32,6 +36,7 @@
                 </div>
             </tr>
         </div>
+
 
         <div class="doesNotHaveAgreements" th:if="${show2}">
             <h1>Du saknar:</h1>
