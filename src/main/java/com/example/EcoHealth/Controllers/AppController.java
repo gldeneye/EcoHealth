@@ -107,10 +107,14 @@ public class AppController {
         Product ChildrenSavings = new Product("Sparande till barn","Spara för ditt barns framtid", "#",productRepository.getTokens("ChildrensSavings"));
         Product PensionSavings = new Product("Pensionssparande", "Spara för din framtid", "#",productRepository.getTokens("PensionsSavings"));
         Product Insurance = new Product("Försäkring","Ekonomisk ersättning i händelse av olyckor, sjukdom och dödsfall", "#",productRepository.getTokens("Insurance"));
+        Product housingSavings = new Product("Spara till din egen bostad","Sparande är viktigt för att man ska kunna finansiera kontantinsatsen", "#", productRepository.getTokens("HousingSavings"));
 
         if ((boolean) session.getAttribute("hasMortgage")) {
             hasAgreements.put("hasMortgage", Mortgage);
-        } else {
+        } else if ((boolean) session.getAttribute("hasMortgage")==false && customerRepository.getMaritalOrAccommodationStatus(customer.getPersNo(),"Accommodation").equals("Rental")) {
+            doesNotHaveAgreements.put("housingSavings", housingSavings);
+        }
+        else {
             doesNotHaveAgreements.put("hasMortgage", Mortgage);
         };
 
