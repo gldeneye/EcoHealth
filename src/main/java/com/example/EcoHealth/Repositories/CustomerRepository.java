@@ -25,7 +25,7 @@ public class CustomerRepository {
              Statement statement = conn.createStatement();
              ResultSet rs = statement.executeQuery("SELECT * FROM CUSTOMER")) {
 
-           while (rs.next()) {
+            while (rs.next()) {
                 Customer customer = new Customer(rs.getString("persNo"), rs.getString("firstName"), rs.getString("lastName"));
                 customers.add(customer);
             }
@@ -40,8 +40,8 @@ public class CustomerRepository {
         Boolean result = false;
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("SELECT PASSWORD FROM CUSTOMER WHERE PERSNO = ?")) {
-                ps.setString(1, persNo);
-                ResultSet rs = ps.executeQuery();
+            ps.setString(1, persNo);
+            ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 result = rs.getString("password").equals(password);
@@ -57,10 +57,10 @@ public class CustomerRepository {
     public int calcCustomerTokens(String persNo) {
         int numOfTokens = 0;
         try (Connection conn = dataSource.getConnection();
-        PreparedStatement ps = conn.prepareStatement("SELECT SUM (NUMBEROFTOKENS) FROM AGREEMENT "+
-                "INNER JOIN PRODUCT ON AGREEMENT.PRODUCTID = PRODUCT.ID " +
-                "INNER JOIN CUSTOMER ON AGREEMENT.CUSTOMERID = CUSTOMER.ID " +
-                "WHERE CUSTOMER.PERSNO =?")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT SUM (NUMBEROFTOKENS) FROM AGREEMENT "+
+                     "INNER JOIN PRODUCT ON AGREEMENT.PRODUCTID = PRODUCT.ID " +
+                     "INNER JOIN CUSTOMER ON AGREEMENT.CUSTOMERID = CUSTOMER.ID " +
+                     "WHERE CUSTOMER.PERSNO =?")) {
 
             ps.setString(1,persNo);
             ResultSet rs = ps.executeQuery();
@@ -78,11 +78,11 @@ public class CustomerRepository {
         int flag = 0;
         boolean hasproduct = false;
         try (Connection conn = dataSource.getConnection();
-        PreparedStatement ps = conn.prepareStatement("select count (*) " +
-                "from agreement " +
-                "inner join product on product.id = agreement.productid " +
-                "inner join customer on agreement.customerid = customer.id " +
-                "where customer.persNo = ? and product.name = ?")) {
+             PreparedStatement ps = conn.prepareStatement("select count (*) " +
+                     "from agreement " +
+                     "inner join product on product.id = agreement.productid " +
+                     "inner join customer on agreement.customerid = customer.id " +
+                     "where customer.persNo = ? and product.name = ?")) {
 
             ps.setString(1,persNo);
             ps.setString(2,productType);
@@ -118,7 +118,7 @@ public class CustomerRepository {
         }
         return hasChildren;
     }
-//
+
     public String getMaritalOrAccommodationStatus(String persNo, String infoType) {
         //"maritalStatus" eller "accommodation" som andra in-parameter
         String type = "unknown";

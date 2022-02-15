@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
-
 @Controller
 public class AppController {
 
@@ -182,11 +181,7 @@ public class AppController {
             doesNotHaveAgreements.put("hasPensionSavings", PensionSavings);
         };
 
-        /*agreements.put("buffert", (boolean) session.getAttribute("hasBufferSavings"));
-        agreements.put("hasChildSavings", (boolean) session.getAttribute("hasChildSavings"));
-        agreements.put("hasInsurance", (boolean) session.getAttribute("hasInsurance"));
-        agreements.put("hasPensionSavings", (boolean) session.getAttribute("hasPensionSavings"));*/
-
+        
         model.addAttribute("hasAgreements", hasAgreements);
         model.addAttribute("doesNotHaveAgreements", doesNotHaveAgreements);
 
@@ -195,29 +190,17 @@ public class AppController {
             show = true;
         };
 
+
         boolean show2 = false;
         if (doesNotHaveAgreements.size()>0) {
             show2 = true;
         };
 
+
         model.addAttribute("show2", show2);
         model.addAttribute("show", show);
 
-        /*Product Mortgage = new Product("Mortgage", "Flytta ditt bolån till Handelsbanken och tjäna XX st Scotte coins","#");
-        Product Buffer = new Product("Buffer", "Trygga din ekonomi med en buffert för oförusedda utgifter", "#");
-        Product ChildrenSavings = new Product("ChildrenSavings","Barnspar", "#");
-        Product PensionSavings = new Product("PensionSavings", "Pensionsspar", "#");
-        Product Insurance = new Product("Insurance","Försäkring", "#");
-*//*
-        HashMap<Integer, Product> products = new HashMap<>();
-        products.put(1, Mortgage);
-        products.put(2, Buffer);
-        products.put(3, ChildrenSavings);
-        products.put(4, PensionSavings);
-        products.put(5, Insurance);*/
-
-/*        model.addAttribute("products", products);*/
-
+     
 
         return "result";
     }
