@@ -1,4 +1,4 @@
-package com.example.EcoHealth.Controllers;
+package com.example.EcoHealth;
 
 public class Product {
     private String name;
@@ -6,11 +6,11 @@ public class Product {
     private String href;
     private int tokens;
 
-    public Product(String name, String description, String href) {
+    public Product(String name, String description, String href, int tokens) {
         this.name = name;
         this.description = description;
         this.href = href;
-
+        this.tokens=tokens;
     }
 
     public String getName() {

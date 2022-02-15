@@ -42,16 +42,15 @@
                     <br>
                     <td th:text="${instance.value.getDescription()}">Beskrivning</td><br>
                     <td>
-                        <a th:href="${instance.value.getHref()}" th:text="${instance.value.getName()}" target="_blank" />
+                        <a th:href="${instance.value.getHref()}" th:text="'Tjäna ' + ${instance.value.getTokens()} + ' Skotte tokens'" target="_blank" />
                     </td>
                     <br><br>
                 </div>
-<!-- nu hämtar app inte "product" från DB utan är hårdkodat i Controllern,
         </div>
 
     </div>
 
-    <!--        <div class="bolån">-->
+        <div class="bolån">-->
     <!--            <div th:text="${hasMortgage} ? 'Bolån saknas...' : 'Ni har bolån!'"></div>-->
     <!--        </div>-->
     <!--        <div class="buffert">-->

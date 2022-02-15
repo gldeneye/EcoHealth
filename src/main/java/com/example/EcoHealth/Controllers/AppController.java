@@ -1,7 +1,9 @@
 package com.example.EcoHealth.Controllers;
 
 import com.example.EcoHealth.Customer;
+import com.example.EcoHealth.Product;
 import com.example.EcoHealth.Repositories.CustomerRepository;
+import com.example.EcoHealth.Repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,17 +13,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Controller
 public class AppController {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @GetMapping("/")
     public String homePage() {
@@ -101,11 +102,11 @@ public class AppController {
         HashMap<String, Product> hasAgreements = new HashMap<>();
         HashMap<String, Product> doesNotHaveAgreements = new HashMap<>();
 
-        Product Mortgage = new Product("Bolån", "Flytta ditt bolån till Handelsbanken och tjäna XX st Scotte coins","#");
-        Product Buffer = new Product("Buffertsparande", "Trygga din ekonomi med en buffert för oförusedda utgifter", "#");
-        Product ChildrenSavings = new Product("Sparande till barn","Spara för ditt barns framtid", "#");
-        Product PensionSavings = new Product("Pensionssparande", "Spara för din framtid", "#");
-        Product Insurance = new Product("Försäkring","Ekonomisk ersättning i händelse av olyckor, sjukdom och dödsfall", "#");
+        Product Mortgage = new Product("Bolån", "Flytta ditt bolån till Handelsbanken","#", productRepository.getTokens("Mortgage"));
+        Product Buffer = new Product("Buffertsparande", "Trygga din ekonomi med en buffert för oförusedda utgifter", "#",productRepository.getTokens("BufferSavings") );
+        Product ChildrenSavings = new Product("Sparande till barn","Spara för ditt barns framtid", "#",productRepository.getTokens("ChildrensSavings"));
+        Product PensionSavings = new Product("Pensionssparande", "Spara för din framtid", "#",productRepository.getTokens("PensionsSavings"));
+        Product Insurance = new Product("Försäkring","Ekonomisk ersättning i händelse av olyckor, sjukdom och dödsfall", "#",productRepository.getTokens("Insurance"));
 
         if ((boolean) session.getAttribute("hasMortgage")) {
             hasAgreements.put("hasMortgage", Mortgage);
@@ -115,6 +116,8 @@ public class AppController {
 
         if ((boolean) session.getAttribute("hasChildSavings")) {
             hasAgreements.put("hasChildSavings", ChildrenSavings);
+        } else if ((boolean)session.getAttribute("hasChildSavings") == false && customerRepository.getHasChildren(customer.getPersNo()) == false){
+            System.out.println("Kund saknar barn");
         } else {
             doesNotHaveAgreements.put("hasChildSavings", ChildrenSavings);
         };
