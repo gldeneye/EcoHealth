@@ -26,7 +26,8 @@
             <tr th:each="instance : ${hasAgreements}">
                 <div>
                     <img src="..static/img/green.jpg" th:src="'/img/green.jpg'" alt="green" height="100" width="100">
-                    <td th:text="${instance.value}">keyvalue</td>
+                    <td th:text="${instance.value.getName()}">Produktnamn</td>
+                    <br>
                     <br>
                 </div>
             </tr>
@@ -38,34 +39,33 @@
                 <div>
                     <img src="../static/img/red.jpg" th:src="'/img/red.jpg'" alt="red" height="100" width="100">
                     <td th:text="${instance.value.getName()}">Produktnamn</td>
-                    <td th:text="${instance.value.getDescription()}">Beskrivning</td>
-                    <td th:text="${instance.value.getHref()}">Href</td>
                     <br>
-
-                    <!-- eventuellt till hashmap som håller beskrivning av tjänsten + href -->
-                    <!--<div th:object="${products}" th:text="${products['${instance.value}']}">1</th:text>-->
-
+                    <td th:text="${instance.value.getDescription()}">Beskrivning</td><br>
+                    <td>
+                        <a th:href="${instance.value.getHref()}" th:text="${instance.value.getName()}" target="_blank" />
+                    </td>
+                    <br><br>
+                </div>
+<!-- nu hämtar app inte "product" från DB utan är hårdkodat i Controllern,
         </div>
 
     </div>
 
-</div>
-
-<!--        <div class="bolån">-->
-<!--            <div th:text="${hasMortgage} ? 'Bolån saknas...' : 'Ni har bolån!'"></div>-->
-<!--        </div>-->
-<!--        <div class="buffert">-->
-<!--            <p th:if="${customer.hasBufferSavings}">Ni har buffertsparande!</p>-->
-<!--        </div>-->
-<!--        <div class="barnspar">-->
-<!--            <p th:if="${customer.hasChildSavings}">Ni har barnspar!</p>-->
-<!--        </div>-->
-<!--        <div class="tryggförs">-->
-<!--            <p th:if="${customer.hasInsurance}">Ni har trygghetsförsäkring!</p>-->
-<!--        </div>-->
-<!--        <div class="pensionsspar">-->
-<!--            <p th:if="${customer.hasPensionSavings}">Ni har ett pensionssparande!</p>-->
-<!--        </div>-->
+    <!--        <div class="bolån">-->
+    <!--            <div th:text="${hasMortgage} ? 'Bolån saknas...' : 'Ni har bolån!'"></div>-->
+    <!--        </div>-->
+    <!--        <div class="buffert">-->
+    <!--            <p th:if="${customer.hasBufferSavings}">Ni har buffertsparande!</p>-->
+    <!--        </div>-->
+    <!--        <div class="barnspar">-->
+    <!--            <p th:if="${customer.hasChildSavings}">Ni har barnspar!</p>-->
+    <!--        </div>-->
+    <!--        <div class="tryggförs">-->
+    <!--            <p th:if="${customer.hasInsurance}">Ni har trygghetsförsäkring!</p>-->
+    <!--        </div>-->
+    <!--        <div class="pensionsspar">-->
+    <!--            <p th:if="${customer.hasPensionSavings}">Ni har ett pensionssparande!</p>-->
+    <!--        </div>-->
 
 </div>
 

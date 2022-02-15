@@ -101,11 +101,11 @@ public class AppController {
         HashMap<String, Product> hasAgreements = new HashMap<>();
         HashMap<String, Product> doesNotHaveAgreements = new HashMap<>();
 
-        Product Mortgage = new Product("Mortgage", "Flytta ditt bolån till Handelsbanken och tjäna XX st Scotte coins","#");
-        Product Buffer = new Product("Buffer", "Trygga din ekonomi med en buffert för oförusedda utgifter", "#");
-        Product ChildrenSavings = new Product("ChildrenSavings","Barnspar", "#");
-        Product PensionSavings = new Product("PensionSavings", "Pensionsspar", "#");
-        Product Insurance = new Product("Insurance","Försäkring", "#");
+        Product Mortgage = new Product("Bolån", "Flytta ditt bolån till Handelsbanken och tjäna XX st Scotte coins","#");
+        Product Buffer = new Product("Buffertsparande", "Trygga din ekonomi med en buffert för oförusedda utgifter", "#");
+        Product ChildrenSavings = new Product("Sparande till barn","Spara för ditt barns framtid", "#");
+        Product PensionSavings = new Product("Pensionssparande", "Spara för din framtid", "#");
+        Product Insurance = new Product("Försäkring","Ekonomisk ersättning i händelse av olyckor, sjukdom och dödsfall", "#");
 
         if ((boolean) session.getAttribute("hasMortgage")) {
             hasAgreements.put("hasMortgage", Mortgage);
