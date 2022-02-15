@@ -8,6 +8,7 @@ INSERT INTO Product(name, numberOfTokens) VALUES ('BufferSavings', 1000);
 INSERT INTO Product(name, numberOfTokens) VALUES ('ChildrensSavings', 2000);
 INSERT INTO Product(name, numberOfTokens) VALUES ('PensionsSavings', 2000);
 INSERT INTO Product(name, numberOfTokens) VALUES ('Insurance', 1500);
+INSERT INTO Product(name, numberOfTokens) VALUES ('HousingSavings', 1750);
 
 --Ronald Test
 INSERT INTO Agreement(CustomerId, productId, agreementSignedDate, agreementSignedTime) VALUES (1, 1, '2022-01-01','10:00:00');

@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
 <div class="headcontent">
     <h2>Ditt resultat</h2>
 </div>
@@ -18,37 +19,58 @@
     <div class="progresswheel">
     </div>
 
-    <div class="innercontent">
-        <table>
-        <tr class="loop1" th:each="agreement: ${agreements}">
-            <td th:if="${agreement.value} == true" th:text="${agreement.key}"></td>
-        </tr>
-        <tr class="loop2" th:each="agreement: ${agreements}">
-            <td th:if="${agreement.value} == false" th:text="${agreement.key}"></td>
-        </tr>
-        </table>
-    </div>
 
     <img th:src="${image}" src="../static/img/0.jpg" alt="bild">
 
 
-<!--        <div class="bolån">-->
-<!--            <div th:text="${hasMortgage} ? 'Bolån saknas...' : 'Ni har bolån!'"></div>-->
-<!--        </div>-->
-<!--        <div class="buffert">-->
-<!--            <p th:if="${customer.hasBufferSavings}">Ni har buffertsparande!</p>-->
-<!--        </div>-->
-<!--        <div class="barnspar">-->
-<!--            <p th:if="${customer.hasChildSavings}">Ni har barnspar!</p>-->
-<!--        </div>-->
-<!--        <div class="tryggförs">-->
-<!--            <p th:if="${customer.hasInsurance}">Ni har trygghetsförsäkring!</p>-->
-<!--        </div>-->
-<!--        <div class="pensionsspar">-->
-<!--            <p th:if="${customer.hasPensionSavings}">Ni har ett pensionssparande!</p>-->
-<!--        </div>-->
+    <div class="agreements">
+
+        <div class="hasAgreements" th:if="${show}">
+            <h1>Du har:</h1>
+            <tr th:each="instance : ${hasAgreements}">
+                <div>
+                    <img src="..static/img/green.jpg" th:src="'/img/green.jpg'" alt="green" height="100" width="100">
+                    <td th:text="${instance.value.getName()}">Produktnamn</td>
+                    <br>
+                    <br>
+                </div>
+            </tr>
+        </div>
+
+
+        <div class="doesNotHaveAgreements" th:if="${show2}">
+            <h1>Du saknar:</h1>
+            <tr th:each="instance : ${doesNotHaveAgreements}">
+                <div>
+                    <img src="../static/img/red.jpg" th:src="'/img/red.jpg'" alt="red" height="100" width="100">
+                    <td th:text="${instance.value.getName()}">Produktnamn</td>
+                    <br>
+                    <td th:text="${instance.value.getDescription()}">Beskrivning</td><br>
+                    <td>
+                        <a th:href="${instance.value.getHref()}" th:text="'Tjäna ' + ${instance.value.getTokens()} + ' Skotte tokens'" target="_blank" />
+                    </td>
+                    <br><br>
+                </div>
+        </div>
 
     </div>
+
+        <div class="bolån">-->
+    <!--            <div th:text="${hasMortgage} ? 'Bolån saknas...' : 'Ni har bolån!'"></div>-->
+    <!--        </div>-->
+    <!--        <div class="buffert">-->
+    <!--            <p th:if="${customer.hasBufferSavings}">Ni har buffertsparande!</p>-->
+    <!--        </div>-->
+    <!--        <div class="barnspar">-->
+    <!--            <p th:if="${customer.hasChildSavings}">Ni har barnspar!</p>-->
+    <!--        </div>-->
+    <!--        <div class="tryggförs">-->
+    <!--            <p th:if="${customer.hasInsurance}">Ni har trygghetsförsäkring!</p>-->
+    <!--        </div>-->
+    <!--        <div class="pensionsspar">-->
+    <!--            <p th:if="${customer.hasPensionSavings}">Ni har ett pensionssparande!</p>-->
+    <!--        </div>-->
+
 </div>
 
 </body>
