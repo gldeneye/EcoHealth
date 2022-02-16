@@ -49,12 +49,15 @@ public class AppController {
             boolean hasInsurance = customerRepository.checkProduct(persNo, "Insurance");
 
             boolean hasChildren = customerRepository.getHasChildren(persNo);
+            System.out.println("barn: " + hasChildren);
             customer.setHasChildren(hasChildren);
 
             String maritalStatus = customerRepository.getMaritalOrAccommodationStatus(persNo, "maritalStatus");
+            System.out.println("civilstånd: " + maritalStatus);
             customer.setMaritalStatus(maritalStatus);
 
             String typeOfLiving = customerRepository.getMaritalOrAccommodationStatus(persNo, "accommodation");
+            System.out.println("boende: " + typeOfLiving);
             customer.setTypeOfLiving(typeOfLiving);
 
             String getEmail = customerRepository.getEmail(persNo);

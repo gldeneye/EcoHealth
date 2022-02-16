@@ -16,7 +16,8 @@
 <div class="card"> <!--kropp-->
     <div class="card-body">
         <h1 class="card-title">SHB EcoHealth</h1>
-        <form  action="/form" th:object="${customer}" method="POST">
+
+        <form action="/form" th:object="${customer}" method="POST">
             <div class="input">
                 <div class="mb-3 w-25">
                     <label for="firstName" class="form-label">Förnamn</label>
@@ -31,27 +32,27 @@
                     <text>ååmmdd-nnnn</text><br>
                     <input type="text" th:field="*{persNo}" class="form-control" id="socialSecNo" placeholder="Personnummer">
                 </div>
-            </div>
+                </div>
 
-
-
-            <ul class="list">
-                <p>Civilstånd:</p>
-                <li> <input type="radio" th:field="*{maritalStatus}" value="single">Ensamstående</li>
-                <li> <input type="radio" th:field="*{maritalStatus}" value="sambo">Sambo</li>
-                <li> <input type="radio" th:field="*{maritalStatus}" value="married">Gift</li>
-            </ul>
+                <ul class="list">
+                    <p>Civilstånd:</p>
+                    <li> <input type="radio" th:field="*{maritalStatus}" value="Single">Ensamstående</li>
+                    <li> <input type="radio" th:field="*{maritalStatus}" value="Sambo">Sambo</li>
+                    <li> <input type="radio" th:field="*{maritalStatus}" value="Married">Gift</li>
+                </ul>
 
             <ul class="list">
                 <p>Har du barn?</p>
-                <li> <input type="radio" th:field="*{hasChildren}" value="false">Ja</li>
-                <li> <input type="radio" th:field="*{hasChildren}" value="true">Nej</li>
+                <li> <input type="radio" th:field="*{hasChildren}" value="true">Ja</li>
+                <li> <input type="radio" th:field="*{hasChildren}" value="false">Nej</li>
             </ul>
+
             <ul class="list">
                 <p>Boende:</p>
-                <li><input type="radio" th:field="*{typeOfLiving}" value="hyres">Hyres</li>
-                <li><input type="radio" th:field="*{typeOfLiving}" value="ägande">Ägande</li>
+                <li><input type="radio" th:field="*{typeOfLiving}" value="Rental">Hyres</li>
+                <li><input type="radio" th:field="*{typeOfLiving}" value="Ownership">Ägande</li>
             </ul>
+
             <ul class="list">
                 <p>Har produkter/tjänster: </p>
                 <li><input type="checkbox" disabled="disabled" value="true" th:checked="${hasMortgage}" >Bolån</li>
@@ -64,6 +65,7 @@
             <button type="submit" class="button" value ="Nästa">Nästa</button>
         </form>
     </div>
+</div>
 </div>
 </body>
 </html>
