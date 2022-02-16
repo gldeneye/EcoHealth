@@ -27,7 +27,7 @@ padding: 35px, 35px, 35px, 0px;
 }
 h1 {
     text-align: center;
-    padding: 70px;
+    padding: 70px 70px 2px 70px;
     color: #005fa5;
     font-size: 50px;
 
@@ -102,3 +102,15 @@ font-weight: 300;
   background-repeat: no-repeat; *//* Do not repeat the image *//*
   background-size: cover; *//* Resize the background image to cover the entire container *//*
 }*/
+
+label {
+display: inline-block;
+margin-right:100px;
+margin-left: 95px;
+margin-bottom: 0.5px;
+}
+
+.description {
+   text-align: center;
+   font-size: 18px;
+   }
