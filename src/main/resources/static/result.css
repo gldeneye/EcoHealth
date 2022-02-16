@@ -6,19 +6,17 @@ body {
         color:#005fa5;
         font-size: 50px;
 
-
-
     }
     h2 {
     font-size: 25px;
     color:#005fa5;
+
 
     }
 .headcontent {
     background-color:#005fa5;
     border-bottom: 1px solid #fff;
     }
-
 
     .card-body  {
         background-color: rgba(233, 233, 233, 1);
@@ -29,8 +27,6 @@ body {
         max-width:750px
 
         }
-
-
 
         .score {
             /*max-width: fit-content;*/
@@ -52,7 +48,6 @@ body {
             border: 1px solid #ccc;
             }
 
-
         .currentscore {
          float: left;
          font-size: 40px
@@ -62,31 +57,112 @@ body {
 
         }
 
-      img { width:20%;
+      img { width: 30px;
         height: auto;
         float: right;
         }
-
-
+      .progresswheel img { width: 65px;
+      height: auto;
+      float: right;
+        }
+      .currentscore img { width: 65px;
+      position: float-right;
+      height: auto;
+      float: right;
+                }
 
 
         .hasAgreements{
         font-family: Helvetica, Arial, sans-serif;
         /*width: 650px;*/
+        /*font-weight: bold;*/
         border: 2px solid green;
+        margin-left: 10px;
         margin-bottom: 50px;
         border-radius: 5px;
         background-color: white;
-
+        padding: 10px 0px 0px 10px;
 
 
         }
         .doesNotHaveAgreements{
         font-family: Helvetica, Arial, sans-serif;
         /*width: 600px;*/
+        font-weight: bold;
         border: 2px solid red;
+        margin-left: 10px;
         /*margin: 50px;*/
         border-radius: 5px;
         background-color: white;
+        padding: 10px 0px 0px 10px;
 
         }
+        button {
+         position: flex;
+            background-color: #005fa5;
+            color: white;
+            /*margin-right: 25px;*/
+            font-size: 20px;
+            padding: 2px 12px;
+            /*border: none;*/
+            cursor: hand;
+            color:  white;
+            border-radius: 5px;
+            margin: 55px, 0px, 0px, 0px;
+        }
+        .popContainer{
+          position: absolute;
+          left: 1000px;/*right: 150px;*/
+          top: 305px;
+          width: 200px;
+          height: 120px;
+          border: 2px;
+          color: #005fa5;
+          border: solid 2px #005fa5;
+          background-color: rgba(233, 233, 233, 1);
+          border-radius:5px;
+          padding: 5px;
+
+        }
+        .nextUnlock{
+        border: solid 2px #005fa5;
+        background-color: rgba(233, 233, 233, 1);
+        border-radius:5px;
+        padding: 5px;
+        width: 200px;
+        height: 120px;*/
+        }
+        .meetingButton{
+        border: solid 2px #005fa5;
+        background-color: rgba(233, 233, 233, 1);
+        border-radius:5px;
+        padding: 5px;
+        width: 200px;
+        height: 120px;*/
+                }
+        .products{
+        font
+        }
+         label {
+            display: inline-block;
+            margin-right:100px;
+            margin-left: 95px;
+            margin-bottom: 0.5px;
+            }
+            .description {
+               text-align: center;
+               font-size: 18px;
+               }
+            .footer1 {
+              /*position: absolute;*/
+              left: 0;
+              bottom: 0;
+              width: 100%;
+              background-color: #e1f0f5;
+              margin-top: 100px;
+            }
+            .footerImage {
+            max-width: 100%;
+            height: fixed 500px;
+            width: auto;
+            }

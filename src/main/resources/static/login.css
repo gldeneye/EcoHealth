@@ -94,6 +94,35 @@ font-weight: 300;
 }
 .btn-primary {
     background-color: #005fa5;}
+    label {
+    display: inline-block;
+    margin-right:100px;
+    margin-left: 95px;
+    margin-bottom: 0.5px;
+    }
+    label {
+    display: inline-block;
+    margin-right:100px;
+    margin-left: 95px;
+    margin-bottom: 0.5px;
+    }
+    .description {
+       text-align: center;
+       font-size: 18px;
+       }
+    .footer1 {
+      /*position: absolute;*/
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #e1f0f5;
+      margin-top: 100px;
+    }
+    .footerImage {
+    max-width: 100%;
+    height: fixed 500px;
+    width: auto;
+    }
 /*.hero-image {
   background-image: url("../static/img/skotte.jpg"); *//* The image used *//*
   background-color: #cccccc; *//* Used if the image is unavailable *//*
