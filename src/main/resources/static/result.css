@@ -221,6 +221,31 @@ body {
             .button{
             text-align: center;
             }
+
             .levelText{
             width: 45px;
+            }
+
+            .headline {
+                font-size: 45px;
+                margin-bottom: 0;
+                margin-left: 10px;
+            }
+
+            .poweredBy {
+                font-size: 13px;
+                margin-top: 0;
+                color: #b4c0c4;
+                font-style: italic;
+                margin-left: 13px;
+            }
+
+            .dog {
+            position: absolute;
+            top: 4px;
+            left: 218px;
+            }
+
+            .levels {
+            width: 220px;
             }

@@ -9,7 +9,9 @@
 </head>
 <body>
 <div class="headcontent">
-    <h1>Resultat</h1>
+    <h1 class="headline">EcoHealth</h1>
+    <img class="dog" src="../static/img/litenhund.jpg" th:src="'/img/litenhund.jpg'" height="45">
+    <h5 class="poweredBy">Powered by Handelsbanken</h5>
 </div>
 <div class="card"> <!--kropp-->
     <div class="card-body">
@@ -27,9 +29,13 @@
          <span >
             <img src="../static/img/Crown1.jpg" th:src="'/img/Crown1.jpg'" alt="Crown1">
         </span>
-                <span th:text="${levels}">
+                <div class="levels">
+
+                <span th:text="${levels}">Test test test
+
         <!--<img th:src="${image}" src="../static/img/Level1.jpg" alt="bild">-->
         </span>
+                </div>
             </div>
         </div>
         <div class="container">
