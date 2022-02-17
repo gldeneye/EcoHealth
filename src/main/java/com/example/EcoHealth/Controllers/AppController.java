@@ -49,12 +49,15 @@ public class AppController {
             boolean hasInsurance = customerRepository.checkProduct(persNo, "Insurance");
 
             boolean hasChildren = customerRepository.getHasChildren(persNo);
+            System.out.println("barn: " + hasChildren);
             customer.setHasChildren(hasChildren);
 
             String maritalStatus = customerRepository.getMaritalOrAccommodationStatus(persNo, "maritalStatus");
+            System.out.println("civilstånd: " + maritalStatus);
             customer.setMaritalStatus(maritalStatus);
 
             String typeOfLiving = customerRepository.getMaritalOrAccommodationStatus(persNo, "accommodation");
+            System.out.println("boende: " + typeOfLiving);
             customer.setTypeOfLiving(typeOfLiving);
 
             String getEmail = customerRepository.getEmail(persNo);
@@ -102,8 +105,10 @@ public class AppController {
         model.addAttribute("tokens", tokens);
         model.addAttribute(session.getAttribute("hasMortgage"));
         System.out.println("Kund har bolån? " + session.getAttribute("hasMortgage"));
+
         String levels = customerRepository.calcCustomerLevel(customer.getPersNo());
         model.addAttribute("levels", levels);
+
 
         if (tokens > 11000) {
             model.addAttribute("image", "/img/Level5.jpg");
@@ -116,28 +121,7 @@ public class AppController {
         } else {
             model.addAttribute("image", "/img/Level1.jpg");
         }
-        /*int numOfAgreements = customerRepository.getNumberOfAgreements(customer.getPersNo());
-        switch (numOfAgreements) {
-            case(0):
-                model.addAttribute("image", "/img/0.jpg");
-                break;
-            case(1):
-                model.addAttribute("image", "/img/20.jpg");
-                break;
-            case(2):
-                model.addAttribute("image", "/img/40.jpg");
-                break;
-            case(3):
-                model.addAttribute("image", "/img/60.jpg");
-                break;
-            case(4):
-                model.addAttribute("image", "/img/80.jpg");
-                break;
-            case(5):
-                model.addAttribute("image", "/img/100.jpg");
-                break;
 
-        }*/
 
         HashMap<String, Boolean> agreements = new HashMap<>();
         agreements.put("hasMortgage", (boolean)session.getAttribute("hasMortgage"));

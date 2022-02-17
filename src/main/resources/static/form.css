@@ -16,13 +16,20 @@ p {
 font-size: 20px;
 
 }
+
 h1 {
+padding: 35px, 35px, 35px, 0px;
+    color: whitesmoke;
+    font-size: 35px;
+}
+
+
+.card-title {
     padding: 35px, 35px, 35px, 0px;
     color: #005fa5;
-    font-size: 50px;
-
-
+    font-size: 35px;
 }
+
 .card-body  {
     background-color: rgba(233, 233, 233, 1);
     border-radius: 5px;
@@ -62,4 +69,48 @@ font-size: 17px;
     }
 .input {
 /*text-align: center;*/
+}
+
+.footer1 {
+  /*position: absolute;*/
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #e1f0f5;
+  margin-top: 100px;
+}
+
+.footerImage {
+max-width: 100%;
+height: fixed 500px;
+width: auto;
+}
+
+.helpText {
+font-size: 12px;
+font-style: italic;
+}
+
+label {
+margin-bottom: 0;
+}
+
+.headline {
+    font-size: 45px;
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+.poweredBy {
+    font-size: 13px;
+    margin-top: 0;
+    color: #b4c0c4;
+    font-style: italic;
+    margin-left: 13px;
+}
+
+.dog {
+position: absolute;
+top: 4px;
+left: 218px;
 }

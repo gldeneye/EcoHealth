@@ -15,6 +15,7 @@
     <h1>Resultat</h1>
 </div>
 <div class="card"> <!--kropp-->
+
 <div class="card-body">
     <h1 class="card-title">Resultat</h1>
 
@@ -67,9 +68,11 @@
                     <td th:text="${instance.value.getName()}">Produktnamn</td>
                     <br>
                     <br>
+
                 </div>
-            </tr>
+            </div>
         </div>
+
 
 
         <div class="doesNotHaveAgreements" th:if="${show2}">
@@ -90,6 +93,10 @@
     </div>
 </div>
 
+
+<div class="footer1">
+    <img class="footerImage" th:src="'/img/footer.jpg'" src="../static/img/footer.jpg">
+</div>
 <div class="footer1">
     <img class="footerImage" th:src="'/img/footer.jpg'" src="../static/img/footer.jpg">
 </div>
