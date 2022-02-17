@@ -110,16 +110,16 @@ public class AppController {
         model.addAttribute("levels", levels);
 
 
-        if (tokens > 11000) {
+        if (tokens >= 11000) {
             model.addAttribute("image", "/img/Level5.jpg");
-        } else if (tokens >5000) {
+        } else if (tokens >= 5000) {
             model.addAttribute("image", "/img/Level4.jpg");
-        } else if (tokens >3000) {
+        } else if (tokens >= 3000) {
             model.addAttribute("image", "/img/Level3.jpg");
-        } else if (tokens >1500) {
+        } else if (tokens >= 1500) {
             model.addAttribute("image", "/img/Level2.jpg");
         } else {
-            model.addAttribute("image", "/img/Level1.jpg");
+            model.addAttribute("image", "/img/Crown1.jpg");
         }
 
 

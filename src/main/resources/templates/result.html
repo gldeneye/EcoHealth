@@ -26,15 +26,19 @@
             </span>
             </div>
             <div class="progresswheel" >
-         <span >
-            <img class="picture" src="../static/img/Crown1.jpg" th:src="'/img/Crown1.jpg'" alt="Crown1">
-        </span>
+         <!--<span >
+            <img class="picture" src="../static/img/Crown1.jpg" th:src="${image}" alt="Crown1">
+        </span>-->
                 <div class="levels">
 
                 <span th:text="${levels}">Test test test
 
-        <!--<img th:src="${image}" src="../static/img/Level1.jpg" alt="bild">-->
         </span>
+                    </div>
+                    <div class="theCrown">
+                    <span>
+                       <img class="picture" th:src="${image}" src="../static/img/Level1.jpg" alt="bild">
+                    </span>
                 </div>
             </div>
         </div>
@@ -72,11 +76,11 @@
             <div class="doesNotHaveAgreements" th:if="${show2}">
                 <h2>Du saknar:</h2>
                 <tr th:each="instance : ${doesNotHaveAgreements}">
-                    <div>
+                    <div class="productParent">
                         <img class="picture" src="../static/img/red1.jpg" th:src="'/img/red1.jpg'" >
                         <td class="products" th:text="${instance.value.getName()}">Produktnamn</td>
                         <br>
-                        <td th:text="${instance.value.getDescription()}">Beskrivning</td><br>
+                        <td id="productDesc" th:text="${instance.value.getDescription()}">Beskrivning</td><br>
                         <td>
                             <a th:href="${instance.value.getHref()}" th:text="'Tjäna ' + ${instance.value.getTokens()} + ' Skotte tokens'" target="_blank" />
                         </td>

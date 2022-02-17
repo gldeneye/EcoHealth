@@ -28,7 +28,7 @@ body {
             /*max-width: fit-content;*/
             /*font-size: 70px;*/
             margin-top: 50px;
-            margin-bottom:100px;
+            margin-bottom:30px;
             padding: 10px 10px;
             font-family: Helvetica, Arial, sans-serif;
             border: solid 1px black;
@@ -69,8 +69,8 @@ body {
         font-family: Helvetica, Arial, sans-serif;
         /*width: 650px;*/
         /*font-weight: bold;*/
-        border: 2px solid green;
-        margin-left: 10px;
+        border: 2px solid #ccc ;
+        /*margin-left: 10px;*/
         margin-bottom: 50px;
         border-radius: 5px;
         background-color: white;
@@ -80,9 +80,9 @@ body {
         .doesNotHaveAgreements{
         font-family: Helvetica, Arial, sans-serif;
         /*width: 600px;*/
-        font-weight: bold;
-        border: 2px solid red;
-        margin-left: 10px;
+        /*font-weight: bold;*/
+        border: 2px solid #ccc;
+        /*margin-left: 10px;*/
         /*margin: 50px;*/
         border-radius: 5px;
         background-color: white;
@@ -130,8 +130,8 @@ body {
         width: 200px;
         height: 120px;*/
                 }
-        .products{
-        font
+        .productParent .products{
+        font-weight: bold;
         }
          label {
             display: inline-block;
@@ -164,7 +164,7 @@ body {
                    border-radius: 5px;
                    }
                    .latestUnlocked{
-                   box-shadow: 0 0 0 1px #163772 inset,0 0 0 2px rgba(255, 255, 255, 0.15) inset,0 4px 0 0      #333797,0 4px 0 1px rgba(0, 0, 0, 0.4),0 4px 4px 1px rgba(0, 0, 0, 0.5);
+                   box-shadow: 0 0 0 1px #163772 inset,0 0 0 2px rgba(255, 255, 255, 0.15) inset,0 0 0 0      #333797,0 0 0 1px rgba(0, 0, 0, 0.4),0 4px 4px 1px rgba(0, 0, 0, 0.5);
                      border: solid 2px #005fa5;
                      background-color: white;
                      border-radius:5px;
@@ -183,7 +183,7 @@ body {
                      border-radius:5px;
                      padding: 5px;}
                    .nextUnlock{
-                   box-shadow: 0 0 0 1px #163772 inset,0 0 0 2px rgba(255, 255, 255, 0.15) inset,0 4px 0 0      #333797,0 4px 0 1px rgba(0, 0, 0, 0.4),0 4px 4px 1px rgba(0, 0, 0, 0.5);
+                   box-shadow: 0 0 0 1px #163772 inset,0 0 0 2px rgba(255, 255, 255, 0.15) inset,0 0 0 0      #333797,0 0 0 1px rgba(0, 0, 0, 0.4),0 4px 4px 1px rgba(0, 0, 0, 0.5);
                    border: solid 2px #005fa5;
                    background-color: white;
                    border-radius:5px;
@@ -203,7 +203,7 @@ body {
                    padding: 5px;
                            }
                    .meetingButton{
-                   box-shadow: 0 0 0 1px #163772 inset,0 0 0 2px rgba(255, 255, 255, 0.15) inset,0 4px 0 0      #333797,0 4px 0 1px rgba(0, 0, 0, 0.4),0 4px 4px 1px rgba(0, 0, 0, 0.5);
+                   box-shadow: 0 0 0 1px #163772 inset,0 0 0 2px rgba(255, 255, 255, 0.15) inset,0 0 0 0      #333797,0 0 0 1px rgba(0, 0, 0, 0.4),0 4px 4px 1px rgba(0, 0, 0, 0.5);
                    border: solid 2px #005fa5;
                    background-color: white;
                    border-radius:5px;
@@ -252,5 +252,14 @@ body {
             }
 
             .levels {
-            width: 220px;
+            width: 155px;
+            float: left;
+            }
+
+            #productDesc {
+            font-weight: 0;
+            }
+
+            .theCrown {
+            float: right;
             }

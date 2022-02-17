@@ -202,15 +202,15 @@ public class CustomerRepository {
         int tokens = calcCustomerTokens(persNo);
         String level = "";
         if (tokens > 11000) {
-            level = "samla 15 000 tokens för att nå nästa nivå";
+            level = "Samla 15 000 tokens för att nå nästa nivå";
         } else if (tokens >=5000) {
-            level = "samla 11 000 tokens för att nå nästa nivå";
+            level = "Samla 11 000 tokens för att nå nästa nivå";
         } else if (tokens >= 3000) {
-            level = "samla 5 000 tokens för att nå nästa nivå";
+            level = "Samla 5 000 tokens för att nå nästa nivå";
         } else if (tokens >= 1500) {
-            level = "samla 3 000 tokens för att nå nästa nivå";
+            level = "Samla 3 000 tokens för att nå nästa nivå";
         } else {
-            level = "samla 1 500 tokens "+" \n "+"för att nå nästa nivå";
+            level = "Samla 1 500 tokens för att nå nästa nivå";
         }
         return level;
     }
