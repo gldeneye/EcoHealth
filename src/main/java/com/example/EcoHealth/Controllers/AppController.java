@@ -102,9 +102,21 @@ public class AppController {
         model.addAttribute("tokens", tokens);
         model.addAttribute(session.getAttribute("hasMortgage"));
         System.out.println("Kund har bolån? " + session.getAttribute("hasMortgage"));
+        String levels = customerRepository.calcCustomerLevel(customer.getPersNo());
+        model.addAttribute("levels", levels);
 
-
-        int numOfAgreements = customerRepository.getNumberOfAgreements(customer.getPersNo());
+        if (tokens > 11000) {
+            model.addAttribute("image", "/img/Level5.jpg");
+        } else if (tokens >5000) {
+            model.addAttribute("image", "/img/Level4.jpg");
+        } else if (tokens >3000) {
+            model.addAttribute("image", "/img/Level3.jpg");
+        } else if (tokens >1500) {
+            model.addAttribute("image", "/img/Level2.jpg");
+        } else {
+            model.addAttribute("image", "/img/Level1.jpg");
+        }
+        /*int numOfAgreements = customerRepository.getNumberOfAgreements(customer.getPersNo());
         switch (numOfAgreements) {
             case(0):
                 model.addAttribute("image", "/img/0.jpg");
@@ -125,7 +137,7 @@ public class AppController {
                 model.addAttribute("image", "/img/100.jpg");
                 break;
 
-        }
+        }*/
 
         HashMap<String, Boolean> agreements = new HashMap<>();
         agreements.put("hasMortgage", (boolean)session.getAttribute("hasMortgage"));

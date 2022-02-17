@@ -28,13 +28,17 @@
             </span>
         </div>
     <div class="progresswheel" >
-    <div>
-        <img th:src="${image}" src="../static/img/0.jpg" alt="bild">
+         <span >
+            <img src="../static/img/Crown1.jpg" th:src="'/img/Crown1.jpg'" alt="Crown1">
+        </span>
+    <span th:text="${levels}">
+        <!--<img th:src="${image}" src="../static/img/Level1.jpg" alt="bild">-->
+        </span>
+
     </div>
-        </div>
     </div>
 
-    <div class="popContainer">
+    <div class="container">
         <div class="latestUnlocked">
             <h5>Nyligen upplåsta förmåner</h5>
             <p>Kostnadsfri juridisk rådgivning</p>
@@ -47,7 +51,9 @@
         <br>
         <div class="meetingButton">
             <h5>Boka rådgivningsmöte</h5>
-            <button type="button">Boka</button>
+            <div class="button">
+                <button type="button">Boka</button>
+            </div>
         </div>
     </div>
    <div class="agreements">
@@ -75,20 +81,15 @@
                     <br>
                     <td th:text="${instance.value.getDescription()}">Beskrivning</td><br>
                     <td>
-                        <a th:href="${instance.value.getHref()}" th:text="'Tjäna ' + ${instance.value.getTokens()} + ' Skotte tokens'" target="_blank" />
+                    <a th:href="${instance.value.getHref()}" th:text="'Tjäna ' + ${instance.value.getTokens()} + ' Skotte tokens'" target="_blank" />
                     </td>
                     <br><br>
                 </div>
         </div>
     </div>
+    </div>
 </div>
 
-
-
-
-</div>
-</div>
-</div>
 <div class="footer1">
     <img class="footerImage" th:src="'/img/footer.jpg'" src="../static/img/footer.jpg">
 </div>
