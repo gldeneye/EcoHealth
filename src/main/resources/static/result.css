@@ -19,6 +19,7 @@ body {
     }
 
     .card-body  {
+     box-shadow: 0 0 0 1px #163772 inset,0 0 0 2px rgba(255, 255, 255, 0.15) inset,0 4px 0 0      #333797,0 4px 0 1px rgba(0, 0, 0, 0.4),0 4px 4px 1px rgba(0, 0, 0, 0.5);
         background-color: rgba(233, 233, 233, 1);
         border-radius: 5px;
         padding: 45px;
@@ -54,18 +55,23 @@ body {
           }
        .progresswheel{
           float: right;
-
+         /* margin-top: 50px;*/
         }
 
       img { width: 30px;
         height: auto;
         float: right;
         }
-      .progresswheel img { width: 65px;
-      height: auto;
+
+      .progresswheel img {
+      width: 65px;
+      height: aut;
       float: right;
+      padding: 5px;
+
         }
-      .currentscore img { width: 65px;
+      .currentscore img {
+      width: 65px;
       position: float-right;
       height: auto;
       float: right;
@@ -110,23 +116,10 @@ body {
             border-radius: 5px;
             margin: 55px, 0px, 0px, 0px;
         }
-        .popContainer{
-          position: absolute;
-          left: 1000px;/*right: 150px;*/
-          top: 305px;
-          width: 200px;
-          height: 120px;
-          border: 2px;
-          color: #005fa5;
-          border: solid 2px #005fa5;
-          background-color: rgba(233, 233, 233, 1);
-          border-radius:5px;
-          padding: 5px;
-
-        }
+       
         .nextUnlock{
         border: solid 2px #005fa5;
-        background-color: rgba(233, 233, 233, 1);
+        background-color: white;
         border-radius:5px;
         padding: 5px;
         width: 200px;
@@ -134,7 +127,7 @@ body {
         }
         .meetingButton{
         border: solid 2px #005fa5;
-        background-color: rgba(233, 233, 233, 1);
+        background-color: white;
         border-radius:5px;
         padding: 5px;
         width: 200px;
@@ -154,7 +147,7 @@ body {
                font-size: 18px;
                }
 
-   .footer1 {
+.footer1 {
       /*position: absolute;*/
       left: 0;
       width: 100%;
@@ -166,5 +159,75 @@ body {
      max-width: 100%;
      height: fixed 500px;
      width: auto;
+            .container{
+                   border-radius: 5px;
 
-   }
+                   }
+                   .latestUnlocked{
+                   box-shadow: 0 0 0 1px #163772 inset,0 0 0 2px rgba(255, 255, 255, 0.15) inset,0 4px 0 0      #333797,0 4px 0 1px rgba(0, 0, 0, 0.4),0 4px 4px 1px rgba(0, 0, 0, 0.5);
+                     border: solid 2px #005fa5;
+                     background-color: white;
+                     border-radius:5px;
+                     padding: 5px;
+                     width: 200px;
+                     height: 120px;
+                     position: absolute;
+                     left: 1000px;/*right: 150px;*/
+                     top: 245px;
+                     width: 200px;
+                     height: 120px;
+                     border: 2px;
+                     color: #005fa5;
+                     border: solid 2px #005fa5;
+                     background-color: white;
+                     border-radius:5px;
+                     padding: 5px;}
+
+                   .nextUnlock{
+                   box-shadow: 0 0 0 1px #163772 inset,0 0 0 2px rgba(255, 255, 255, 0.15) inset,0 4px 0 0      #333797,0 4px 0 1px rgba(0, 0, 0, 0.4),0 4px 4px 1px rgba(0, 0, 0, 0.5);
+                   border: solid 2px #005fa5;
+                   background-color: white;
+                   border-radius:5px;
+                   padding: 5px;
+                   width: 200px;
+                   height: 120px;
+                   position: absolute;
+                   left: 1000px;/*right: 150px;*/
+                   top: 375px;
+                   width: 200px;
+                   height: 120px;
+                   border: 2px;
+                   color: #005fa5;
+                   border: solid 2px #005fa5;
+                   background-color: white;
+                   border-radius:5px;
+                   padding: 5px;
+                           }
+
+                   .meetingButton{
+                   box-shadow: 0 0 0 1px #163772 inset,0 0 0 2px rgba(255, 255, 255, 0.15) inset,0 4px 0 0      #333797,0 4px 0 1px rgba(0, 0, 0, 0.4),0 4px 4px 1px rgba(0, 0, 0, 0.5);
+                   border: solid 2px #005fa5;
+                   background-color: white;
+                   border-radius:5px;
+                   padding: 5px;
+                   width: 200px;
+                   height: 120px;
+                   position: absolute;
+                   left: 1000px;/*right: 150px;*/
+                   top: 650px;
+                   width: 200px;
+                   height: 120px;
+                   border: 2px;
+                   color: #005fa5;
+                   border: solid 2px #005fa5;
+                   background-color: white;
+                   border-radius:5px;
+                   padding: 5px;
+                   }
+            .button{
+            text-align: center;
+            }
+            .levelText{
+            width: 45px;
+            }
+     

@@ -15,79 +15,87 @@
     <h1>Resultat</h1>
 </div>
 <div class="card"> <!--kropp-->
-    <div class="card-body">
-        <h1 class="card-title">Resultat</h1>
 
-        <div class=" score">
-            <div class="currentscore" >
+<div class="card-body">
+    <h1 class="card-title">Resultat</h1>
+
+    <div class=" score">
+        <div class="currentscore" >
             <span th:text="${tokens}">
 2000
             </span>
-                <span style="margin-left:10px">
+            <span style="margin-left:10px">
                 <img src="../static/img/egen.jpg" th:src="'/img/egen.jpg'" alt="egen" >
             </span>
+        </div>
+    <div class="progresswheel" >
+         <span >
+            <img src="../static/img/Crown1.jpg" th:src="'/img/Crown1.jpg'" alt="Crown1">
+        </span>
+    <span th:text="${levels}">
+        <!--<img th:src="${image}" src="../static/img/Level1.jpg" alt="bild">-->
+        </span>
+
+    </div>
+    </div>
+
+    <div class="container">
+        <div class="latestUnlocked">
+            <h5>Nyligen upplåsta förmåner</h5>
+            <p>Kostnadsfri juridisk rådgivning</p>
+        </div>
+        <br>
+        <div class="nextUnlock">
+            <h5>Nästa förmånsnivå</h5>
+            <p>15% hemlarm securitas</p>
+        </div>
+        <br>
+        <div class="meetingButton">
+            <h5>Boka rådgivningsmöte</h5>
+            <div class="button">
+                <button type="button">Boka</button>
             </div>
-            <div class="progresswheel" >
+        </div>
+    </div>
+   <div class="agreements">
+
+        <div class="hasAgreements" th:if="${show}">
+
+            <h2>Du har:</h2>
+            <tr th:each="instance : ${hasAgreements}">
                 <div>
-                    <img th:src="${image}" src="../static/img/0.jpg" alt="bild">
+                    <img src="../static/img/green1.jpg" th:src="'/img/green1.jpg'" alt="green">
+                    <td th:text="${instance.value.getName()}">Produktnamn</td>
+                    <br>
+                    <br>
+
                 </div>
             </div>
         </div>
 
-        <div class="popContainer">
-            <div class="latestUnlocked">
-                <h5>Nyligen upplåsta förmåner</h5>
-                <p>Kostnadsfri juridisk rådgivning</p>
-            </div>
-            <br>
-            <div class="nextUnlock">
-                <h5>Nästa förmånsnivå</h5>
-                <p>15% hemlarm securitas</p>
-            </div>
-            <br>
-            <div class="meetingButton">
-                <h5>Boka rådgivningsmöte</h5>
-                <button type="button">Boka</button>
-            </div>
-        </div>
-        <div class="agreements">
-
-            <div class="hasAgreements" th:if="${show}">
-
-                <h2>Du har:</h2>
-                <tr th:each="instance : ${hasAgreements}">
-                    <div>
-                        <img src="../static/img/green1.jpg" th:src="'/img/green1.jpg'" alt="green">
-                        <td th:text="${instance.value.getName()}">Produktnamn</td>
-                        <br>
-                        <br>
-                    </div>
-                </tr>
-            </div>
 
 
-            <div class="doesNotHaveAgreements" th:if="${show2}">
-                <h2>Du saknar:</h2>
-                <tr th:each="instance : ${doesNotHaveAgreements}">
-                    <div>
-                        <img src="../static/img/red1.jpg" th:src="'/img/red1.jpg'" >
-                        <td class="products" th:text="${instance.value.getName()}">Produktnamn</td>
-                        <br>
-                        <td th:text="${instance.value.getDescription()}">Beskrivning</td><br>
-                        <td>
-                            <a th:href="${instance.value.getHref()}" th:text="'Tjäna ' + ${instance.value.getTokens()} + ' Skotte tokens'" target="_blank" />
-                        </td>
-                        <br><br>
-                    </div>
-            </div>
+        <div class="doesNotHaveAgreements" th:if="${show2}">
+            <h2>Du saknar:</h2>
+            <tr th:each="instance : ${doesNotHaveAgreements}">
+                <div>
+                    <img src="../static/img/red1.jpg" th:src="'/img/red1.jpg'" >
+                    <td class="products" th:text="${instance.value.getName()}">Produktnamn</td>
+                    <br>
+                    <td th:text="${instance.value.getDescription()}">Beskrivning</td><br>
+                    <td>
+                    <a th:href="${instance.value.getHref()}" th:text="'Tjäna ' + ${instance.value.getTokens()} + ' Skotte tokens'" target="_blank" />
+                    </td>
+                    <br><br>
+                </div>
         </div>
     </div>
-
-
-
-
+    </div>
 </div>
-</div>
+
+
+<div class="footer1">
+    <img class="footerImage" th:src="'/img/footer.jpg'" src="../static/img/footer.jpg">
 </div>
 <div class="footer1">
     <img class="footerImage" th:src="'/img/footer.jpg'" src="../static/img/footer.jpg">

@@ -106,6 +106,10 @@ public class AppController {
         model.addAttribute(session.getAttribute("hasMortgage"));
         System.out.println("Kund har bolån? " + session.getAttribute("hasMortgage"));
 
+        String levels = customerRepository.calcCustomerLevel(customer.getPersNo());
+        model.addAttribute("levels", levels);
+
+
         if (tokens > 11000) {
             model.addAttribute("image", "/img/Level5.jpg");
         } else if (tokens >5000) {
@@ -117,6 +121,7 @@ public class AppController {
         } else {
             model.addAttribute("image", "/img/Level1.jpg");
         }
+
 
         HashMap<String, Boolean> agreements = new HashMap<>();
         agreements.put("hasMortgage", (boolean)session.getAttribute("hasMortgage"));
