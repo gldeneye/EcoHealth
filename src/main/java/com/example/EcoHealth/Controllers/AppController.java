@@ -106,28 +106,16 @@ public class AppController {
         model.addAttribute(session.getAttribute("hasMortgage"));
         System.out.println("Kund har bolån? " + session.getAttribute("hasMortgage"));
 
-
-        int numOfAgreements = customerRepository.getNumberOfAgreements(customer.getPersNo());
-        switch (numOfAgreements) {
-            case(0):
-                model.addAttribute("image", "/img/0.jpg");
-                break;
-            case(1):
-                model.addAttribute("image", "/img/20.jpg");
-                break;
-            case(2):
-                model.addAttribute("image", "/img/40.jpg");
-                break;
-            case(3):
-                model.addAttribute("image", "/img/60.jpg");
-                break;
-            case(4):
-                model.addAttribute("image", "/img/80.jpg");
-                break;
-            case(5):
-                model.addAttribute("image", "/img/100.jpg");
-                break;
-
+        if (tokens > 11000) {
+            model.addAttribute("image", "/img/Level5.jpg");
+        } else if (tokens >5000) {
+            model.addAttribute("image", "/img/Level4.jpg");
+        } else if (tokens >3000) {
+            model.addAttribute("image", "/img/Level3.jpg");
+        } else if (tokens >1500) {
+            model.addAttribute("image", "/img/Level2.jpg");
+        } else {
+            model.addAttribute("image", "/img/Level1.jpg");
         }
 
         HashMap<String, Boolean> agreements = new HashMap<>();

@@ -63,3 +63,18 @@ font-size: 17px;
 .input {
 /*text-align: center;*/
 }
+
+.footer1 {
+  /*position: absolute;*/
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #e1f0f5;
+  margin-top: 100px;
+}
+
+.footerImage {
+max-width: 100%;
+height: fixed 500px;
+width: auto;
+}
