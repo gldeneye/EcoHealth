@@ -143,6 +143,8 @@ body {
                text-align: center;
                font-size: 18px;
                }
+
+
             .footer1 {
               /*position: absolute;*/
               left: 0;
@@ -156,6 +158,8 @@ body {
             height: fixed 500px;
             width: auto;
             }
+
+
             .container{
                    border-radius: 5px;
                    }
