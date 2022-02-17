@@ -11,11 +11,13 @@
 <body>
 
 <div class="headcontent">
-    <h1>" "</h1>
+    <h1 class="headline">EcoHealth</h1>
+    <img class="dog" src="../static/img/litenhund.jpg" th:src="'/img/litenhund.jpg'" height="45">
+    <h5 class="poweredBy">Powered by Handelsbanken</h5>
 </div>
 <div class="card"> <!--kropp-->
     <div class="card-body">
-        <h1 class="card-title">SHB EcoHealth</h1>
+        <h1 class="card-title">Kontrollera dina uppgifter</h1>
 
         <form action="/form" th:object="${customer}" method="POST">
             <div class="input">

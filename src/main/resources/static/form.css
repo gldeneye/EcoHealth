@@ -16,13 +16,20 @@ p {
 font-size: 20px;
 
 }
+
 h1 {
+padding: 35px, 35px, 35px, 0px;
+    color: whitesmoke;
+    font-size: 35px;
+}
+
+
+.card-title {
     padding: 35px, 35px, 35px, 0px;
     color: #005fa5;
-    font-size: 50px;
-
-
+    font-size: 35px;
 }
+
 .card-body  {
     background-color: rgba(233, 233, 233, 1);
     border-radius: 5px;
@@ -86,4 +93,24 @@ font-style: italic;
 
 label {
 margin-bottom: 0;
+}
+
+.headline {
+    font-size: 45px;
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+.poweredBy {
+    font-size: 13px;
+    margin-top: 0;
+    color: #b4c0c4;
+    font-style: italic;
+    margin-left: 20px;
+}
+
+.dog {
+position: absolute;
+top: 4px;
+left: 218px;
 }
