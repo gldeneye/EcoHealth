@@ -27,7 +27,7 @@
             </div>
             <div class="progresswheel" >
          <span >
-            <img src="../static/img/Crown1.jpg" th:src="'/img/Crown1.jpg'" alt="Crown1">
+            <img class="picture" src="../static/img/Crown1.jpg" th:src="'/img/Crown1.jpg'" alt="Crown1">
         </span>
                 <div class="levels">
 
@@ -61,7 +61,7 @@
                 <h2>Du har:</h2>
                 <tr th:each="instance : ${hasAgreements}">
                     <div>
-                        <img src="../static/img/green1.jpg" th:src="'/img/green1.jpg'" alt="green">
+                        <img class="picture" src="../static/img/green1.jpg" th:src="'/img/green1.jpg'" alt="green">
                         <td th:text="${instance.value.getName()}">Produktnamn</td>
                         <br>
                         <br>
@@ -73,7 +73,7 @@
                 <h2>Du saknar:</h2>
                 <tr th:each="instance : ${doesNotHaveAgreements}">
                     <div>
-                        <img src="../static/img/red1.jpg" th:src="'/img/red1.jpg'" >
+                        <img class="picture" src="../static/img/red1.jpg" th:src="'/img/red1.jpg'" >
                         <td class="products" th:text="${instance.value.getName()}">Produktnamn</td>
                         <br>
                         <td th:text="${instance.value.getDescription()}">Beskrivning</td><br>
